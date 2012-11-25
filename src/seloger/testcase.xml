@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recherche>
+<resume>ventes de maisons situÃ©es Ã  Gradignan (Gironde), Ã  Sadirac (Gironde), Ã  CÃ©nac (Gironde), Ã  Bouliac (Gironde), Ã  Camblanes-et-Meynac (Gironde), Ã  Carignan-de-Bordeaux (Gironde), Ã  Fargues-Saint-Hilaire (Gironde), Ã  Latresne (Gironde), Ã  Lignan-de-Bordeaux (Gironde), Ã  Quinsac (Gironde) ou Ã  BÃ¨gles (Gironde), ayant une surface supÃ©rieure Ã  80 mÂ², pour un prix infÃ©rieur Ã  150Â 000 â¬, avec une surface de terrain supÃ©rieure Ã  700 mÂ², triÃ©es par prix.</resume>
+<resumeSansTri>ventes de maisons situÃ©es Ã  Gradignan (Gironde), Ã  Sadirac (Gironde), Ã  CÃ©nac (Gironde), Ã  Bouliac (Gironde), Ã  Camblanes-et-Meynac (Gironde), Ã  Carignan-de-Bordeaux (Gironde), Ã  Fargues-Saint-Hilaire (Gironde), Ã  Latresne (Gironde), Ã  Lignan-de-Bordeaux (Gironde), Ã  Quinsac (Gironde) ou Ã  BÃ¨gles (Gironde), ayant une surface supÃ©rieure Ã  80 mÂ², pour un prix infÃ©rieur Ã  150Â 000 â¬, avec une surface de terrain supÃ©rieure Ã  700 mÂ²</resumeSansTri>
+<nbTrouvees>2</nbTrouvees>
+<nbAffichables>2</nbAffichables>
+
+
+
+
+
+
+<annonces>
+
+<annonce>
+	<idAnnonce>73278779</idAnnonce>
+	<idPublication>294640</idPublication>
+	<idTypeTransaction>2</idTypeTransaction>
+	<idTypeBien>2</idTypeBien>
+	
+	<dtFraicheur>2012-11-19T15:37:00</dtFraicheur>
+	<dtCreation>2012-11-19T13:48:00</dtCreation>
+	<titre>Maison 4 piÃ¨ces</titre>
+	<libelle>Maison de 120 mÂ² avec travaux sur 850 mÂ² de terrain</libelle>
+	<proximite>Tramway mussonville</proximite>
+	<descriptif>BÃ¢tisse de 100 mÂ² environ sur 700 mÂ² de terrain Ã  BEGLES.
+Gros travaux Ã  prÃ©voir. Viabilisation rÃ©alisÃ©e par les vendeurs. Beau potentiel.
+Au calme.</descriptif>
+
+
+	<prix>137000</prix>
+
+
+
+	<prixUnite>â¬ FAI*</prixUnite>
+	<prixMention>* Prix net, hors frais notariÃ©s, d'enregistrement et de publicitÃ© fonciÃ¨re</prixMention>
+
+
+	<nbPiece>4</nbPiece>
+	<nbChambre>2</nbChambre>
+	<surface>120</surface>
+	<surfaceUnite>mÂ²</surfaceUnite>
+	<idPays>250</idPays>
+	<pays>France</pays>
+	<cp>33130</cp>
+	<codeInsee>330039</codeInsee>
+	<ville>Begles</ville>
+	<nbPhotos>4</nbPhotos>
+	<firstThumb>http://9.visuels.poliris.com/carre/9/c/f/6/9cf64dc9-6fce.jpg</firstThumb>
+
+
+	<permaLien>http://www.seloger.com/annonces/achat/maison/begles-33/73278779.htm?p=CCCPpAtQAQuUR-8A</permaLien>
+
+	<latitude>44.803251</latitude>
+	<longitude>-0.549759</longitude>
+	<llPrecision>vil</llPrecision>
+	<typeDPE>hab</typeDPE>
+	
+	
+	
+	
+	<siLotNeuf>false</siLotNeuf>	
+	<siMandatExclusif> false</siMandatExclusif>
+	<siMandatStar> false</siMandatStar>
+	<contact>
+
+
+	
+
+
+		<siAudiotel>false</siAudiotel>
+		<idPublication>294640</idPublication>
+		<nom>REALITYS</nom>
+		<rcsSiren>495177891</rcsSiren>
+		<rcsNic>00019</rcsNic>
+
+	</contact>
+	<photos>
+		
+			<photo>
+				<titre></titre>
+				<ordre>0</ordre>
+				<thbUrl>http://9.visuels.poliris.com/thumbnails/9/c/f/6/9cf64dc9-6fce.jpg</thbUrl>
+				<carreurl>http://9.visuels.poliris.com/carre/9/c/f/6/9cf64dc9-6fce.jpg</carreurl>
+				<bigUrl>http://9.visuels.poliris.com/bigs/9/c/f/6/9cf64dc9-6fce.jpg</bigUrl>
+				<stdUrl>http://9.visuels.poliris.com/2d/9/c/f/6/9cf64dc9-6fce.jpg</stdUrl>
+				<c175url>http://9.visuels.poliris.com/c175/9/c/f/6/9cf64dc9-6fce.jpg</c175url>
+				<stdwidth>400</stdwidth>
+				<stdheight>266</stdheight>
+				<thumbwidth>100</thumbwidth>
+				<thumbheight>66</thumbheight>
+				<bigwidth>800</bigwidth>
+				<bigheight>533</bigheight>
+			</photo>
+		
+		
+			<photo>
+				<titre></titre>
+				<ordre>1</ordre>
+				<thbUrl>http://4.visuels.poliris.com/thumbnails/4/7/e/6/47e65fa3-4c9a.jpg</thbUrl>
+				<carreurl>http://4.visuels.poliris.com/carre/4/7/e/6/47e65fa3-4c9a.jpg</carreurl>
+				<bigUrl>http://4.visuels.poliris.com/bigs/4/7/e/6/47e65fa3-4c9a.jpg</bigUrl>
+				<stdUrl>http://4.visuels.poliris.com/2d/4/7/e/6/47e65fa3-4c9a.jpg</stdUrl>
+				<c175url>http://4.visuels.poliris.com/c175/4/7/e/6/47e65fa3-4c9a.jpg</c175url>
+				<stdwidth>400</stdwidth>
+				<stdheight>266</stdheight>
+				<thumbwidth>100</thumbwidth>
+				<thumbheight>66</thumbheight>
+				<bigwidth>800</bigwidth>
+				<bigheight>533</bigheight>
+			</photo>
+		
+		
+			<photo>
+				<titre></titre>
+				<ordre>2</ordre>
+				<thbUrl>http://d.visuels.poliris.com/thumbnails/d/4/b/e/d4bed022-4ed6.jpg</thbUrl>
+				<carreurl>http://d.visuels.poliris.com/carre/d/4/b/e/d4bed022-4ed6.jpg</carreurl>
+				<bigUrl>http://d.visuels.poliris.com/bigs/d/4/b/e/d4bed022-4ed6.jpg</bigUrl>
+				<stdUrl>http://d.visuels.poliris.com/2d/d/4/b/e/d4bed022-4ed6.jpg</stdUrl>
+				<c175url>http://d.visuels.poliris.com/c175/d/4/b/e/d4bed022-4ed6.jpg</c175url>
+				<stdwidth>400</stdwidth>
+				<stdheight>266</stdheight>
+				<thumbwidth>100</thumbwidth>
+				<thumbheight>66</thumbheight>
+				<bigwidth>800</bigwidth>
+				<bigheight>533</bigheight>
+			</photo>
+		
+		
+			<photo>
+				<titre></titre>
+				<ordre>3</ordre>
+				<thbUrl>http://d.visuels.poliris.com/thumbnails/d/8/2/6/d8262449-548b.jpg</thbUrl>
+				<carreurl>http://d.visuels.poliris.com/carre/d/8/2/6/d8262449-548b.jpg</carreurl>
+				<bigUrl>http://d.visuels.poliris.com/bigs/d/8/2/6/d8262449-548b.jpg</bigUrl>
+				<stdUrl>http://d.visuels.poliris.com/2d/d/8/2/6/d8262449-548b.jpg</stdUrl>
+				<c175url>http://d.visuels.poliris.com/c175/d/8/2/6/d8262449-548b.jpg</c175url>
+				<stdwidth>400</stdwidth>
+				<stdheight>266</stdheight>
+				<thumbwidth>100</thumbwidth>
+				<thumbheight>66</thumbheight>
+				<bigwidth>800</bigwidth>
+				<bigheight>533</bigheight>
+			</photo>
+		
+		
+		
+	</photos>
+	<nbsallesdebain></nbsallesdebain>
+	<nbsalleseau></nbsalleseau>
+	<nbtoilettes></nbtoilettes>
+	<sisejour></sisejour>
+	<surfsejour></surfsejour>
+	<anneeconstruct></anneeconstruct>
+	<nbparkings></nbparkings>
+	<nbboxes></nbboxes>
+	<siterrasse></siterrasse>
+	<nbterrasses></nbterrasses>
+	<sipiscine>False</sipiscine>
+</annonce>
+
+
+<annonce>
+	<idAnnonce>70742133</idAnnonce>
+	<idPublication>258167</idPublication>
+	<idTypeTransaction>2</idTypeTransaction>
+	<idTypeBien>2</idTypeBien>
+	
+	<dtFraicheur>2012-11-17T08:42:00</dtFraicheur>
+	<dtCreation>2012-08-11T05:34:00</dtCreation>
+	<titre>Maison</titre>
+	<libelle>Maison</libelle>
+	
+	<descriptif>SECTEUR FARGUES ST HILAIRE Chai en moellon Ã  amÃ©nager au calme, proximitÃ©. CommoditÃ©s Ã  pied, 220 mÂ² env. Au sol + combles amÃ©nageables, terrain de 800mÂ² env.</descriptif>
+
+
+	<prix>138600</prix>
+
+
+
+	<prixUnite>â¬ FAI*</prixUnite>
+	<prixMention>* Prix net, hors frais notariÃ©s, d'enregistrement et de publicitÃ© fonciÃ¨re</prixMention>
+
+
+	<nbPiece>1</nbPiece>
+	
+	<surface>220</surface>
+	<surfaceUnite>mÂ²</surfaceUnite>
+	<idPays>250</idPays>
+	<pays>France</pays>
+	<cp>33370</cp>
+	<codeInsee>330165</codeInsee>
+	<ville>Fargues St Hilaire</ville>
+	<nbPhotos>3</nbPhotos>
+	<firstThumb>http://4.visuels.poliris.com/carre/4/6/1/6/46169c65-548f.jpg</firstThumb>
+
+
+	<permaLien>http://www.seloger.com/annonces/achat/maison/fargues-saint-hilaire-33/70742133.htm?p=CCCPpBLQAQ60Pwdw</permaLien>
+
+	<latitude>44.818593</latitude>
+	<longitude>-0.438952</longitude>
+	<llPrecision>vil</llPrecision>
+	<typeDPE>hab</typeDPE>
+	
+	
+	
+	
+	<siLotNeuf>false</siLotNeuf>	
+	<siMandatExclusif> false</siMandatExclusif>
+	<siMandatStar> false</siMandatStar>
+	<contact>
+
+
+	
+
+
+		<siAudiotel>false</siAudiotel>
+		<idPublication>258167</idPublication>
+		<nom>CARRERE L&#39; IMMOBILIER</nom>
+		<rcsSiren>439490020</rcsSiren>
+		<rcsNic>00013</rcsNic>
+
+	</contact>
+	<photos>
+		
+			<photo>
+				<titre></titre>
+				<ordre>0</ordre>
+				<thbUrl>http://4.visuels.poliris.com/thumbnails/4/6/1/6/46169c65-548f.jpg</thbUrl>
+				<carreurl>http://4.visuels.poliris.com/carre/4/6/1/6/46169c65-548f.jpg</carreurl>
+				<bigUrl>http://4.visuels.poliris.com/bigs/4/6/1/6/46169c65-548f.jpg</bigUrl>
+				<stdUrl>http://4.visuels.poliris.com/2d/4/6/1/6/46169c65-548f.jpg</stdUrl>
+				<c175url>http://4.visuels.poliris.com/c175/4/6/1/6/46169c65-548f.jpg</c175url>
+				<stdwidth>400</stdwidth>
+				<stdheight>300</stdheight>
+				<thumbwidth>100</thumbwidth>
+				<thumbheight>75</thumbheight>
+				<bigwidth>800</bigwidth>
+				<bigheight>600</bigheight>
+			</photo>
+		
+		
+			<photo>
+				<titre></titre>
+				<ordre>1</ordre>
+				<thbUrl>http://2.visuels.poliris.com/thumbnails/2/4/e/7/24e76660-569a.jpg</thbUrl>
+				<carreurl>http://2.visuels.poliris.com/carre/2/4/e/7/24e76660-569a.jpg</carreurl>
+				<bigUrl>http://2.visuels.poliris.com/bigs/2/4/e/7/24e76660-569a.jpg</bigUrl>
+				<stdUrl>http://2.visuels.poliris.com/2d/2/4/e/7/24e76660-569a.jpg</stdUrl>
+				<c175url>http://2.visuels.poliris.com/c175/2/4/e/7/24e76660-569a.jpg</c175url>
+				<stdwidth>400</stdwidth>
+				<stdheight>300</stdheight>
+				<thumbwidth>100</thumbwidth>
+				<thumbheight>75</thumbheight>
+				<bigwidth>800</bigwidth>
+				<bigheight>600</bigheight>
+			</photo>
+		
+		
+			<photo>
+				<titre></titre>
+				<ordre>2</ordre>
+				<thbUrl>http://0.visuels.poliris.com/thumbnails/0/2/d/d/02dd82fc-5d9b.jpg</thbUrl>
+				<carreurl>http://0.visuels.poliris.com/carre/0/2/d/d/02dd82fc-5d9b.jpg</carreurl>
+				<bigUrl>http://0.visuels.poliris.com/bigs/0/2/d/d/02dd82fc-5d9b.jpg</bigUrl>
+				<stdUrl>http://0.visuels.poliris.com/2d/0/2/d/d/02dd82fc-5d9b.jpg</stdUrl>
+				<c175url>http://0.visuels.poliris.com/c175/0/2/d/d/02dd82fc-5d9b.jpg</c175url>
+				<stdwidth>400</stdwidth>
+				<stdheight>300</stdheight>
+				<thumbwidth>100</thumbwidth>
+				<thumbheight>75</thumbheight>
+				<bigwidth>800</bigwidth>
+				<bigheight>600</bigheight>
+			</photo>
+		
+		
+		
+		
+	</photos>
+	<nbsallesdebain>0</nbsallesdebain>
+	<nbsalleseau>0</nbsalleseau>
+	<nbtoilettes>0</nbtoilettes>
+	<sisejour></sisejour>
+	<surfsejour></surfsejour>
+	<anneeconstruct></anneeconstruct>
+	<nbparkings></nbparkings>
+	<nbboxes></nbboxes>
+	<siterrasse></siterrasse>
+	<nbterrasses></nbterrasses>
+	<sipiscine>False</sipiscine>
+</annonce>
+
+
+</annonces>
+
+</recherche><!-- ID3x v4.60 (455.2) - X5 - 00.051.621 - base - 11/20/2012 12:39:20 AM - search.xml -->

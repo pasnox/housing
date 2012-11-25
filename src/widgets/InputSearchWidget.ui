@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InputSearchWidget</class>
+ <widget class="QScrollArea" name="InputSearchWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="horizontalScrollBarPolicy">
+   <enum>Qt::ScrollBarAlwaysOff</enum>
+  </property>
+  <property name="widgetResizable">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="inputSearchWidgetContents">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>294</width>
+     <height>634</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <item>
+     <widget class="QGroupBox" name="gbDriver">
+      <property name="title">
+       <string>Drivers</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="pComboBox" name="cbDrivers"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbType">
+      <property name="title">
+       <string>Type</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QRadioButton" name="rbRent">
+         <property name="text">
+          <string>Rent</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rbPurchase">
+         <property name="text">
+          <string>Purchase</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbCities">
+      <property name="title">
+       <string>Cities</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="CitySearchWidget" name="cswCities" native="true"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbProperties">
+      <property name="title">
+       <string>Properties</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="pComboBox" name="cbProperties"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbRooms">
+      <property name="title">
+       <string>Rooms</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="pComboBox" name="cbRooms"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbBedrooms">
+      <property name="title">
+       <string>Bedrooms</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="pComboBox" name="cbBedrooms"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbBudget">
+      <property name="title">
+       <string>Budget</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="lMinBudget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Min.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="sbMinBudget">
+         <property name="specialValueText">
+          <string>Indifferent</string>
+         </property>
+         <property name="maximum">
+          <number>1500000000</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lMaxBudget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Max.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="sbMaxBudget">
+         <property name="specialValueText">
+          <string>Indifferent</string>
+         </property>
+         <property name="maximum">
+          <number>1500000000</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbSurface">
+      <property name="title">
+       <string>Surface</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="lMinSurface">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Min.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="sbMinSurface">
+         <property name="specialValueText">
+          <string>Indifferent</string>
+         </property>
+         <property name="maximum">
+          <number>1500000000</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lMaxSurface">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Max.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="sbMaxSurface">
+         <property name="specialValueText">
+          <string>Indifferent</string>
+         </property>
+         <property name="maximum">
+          <number>1500000000</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbGround">
+      <property name="title">
+       <string>Ground</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="lMinGround">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Min.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="sbMinGround">
+         <property name="specialValueText">
+          <string>Indifferent</string>
+         </property>
+         <property name="maximum">
+          <number>1500000000</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lMaxGround">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Max.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="sbMaxGround">
+         <property name="specialValueText">
+          <string>Indifferent</string>
+         </property>
+         <property name="maximum">
+          <number>1500000000</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbSorting">
+      <property name="title">
+       <string>Sorting</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="pComboBox" name="cbSorting"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbFeatures">
+      <property name="title">
+       <string>Features</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="pComboBox" name="cbFeatures"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CitySearchWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/CitySearchWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>pComboBox</class>
+   <extends>QComboBox</extends>
+   <header>widgets/pComboBox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
