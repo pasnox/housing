@@ -1,3 +1,6 @@
 [submodule "src/3rdparty/qjson.git"]
 	path = src/3rdparty/qjson.git
 	url = git://github.com/flavio/qjson.git
+[submodule "src/3rdparty/fresh.git"]
+	path = src/3rdparty/fresh.git
+	url = git://github.com/pasnox/fresh.git
