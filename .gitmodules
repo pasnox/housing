@@ -1,0 +1,3 @@
+[submodule "src/3rdparty/qjson.git"]
+	path = src/3rdparty/qjson.git
+	url = git://github.com/flavio/qjson.git
