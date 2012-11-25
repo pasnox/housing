@@ -427,6 +427,13 @@
     </message>
 </context>
 <context>
+    <name>SeLogerHousingDriver</name>
+    <message>
+        <source>All</source>
+        <translation type="obsolete">Tout</translation>
+    </message>
+</context>
+<context>
     <name>UIMain</name>
     <message>
         <location filename="../src/UIMain.ui" line="30"/>
@@ -466,7 +473,7 @@
     <message>
         <location filename="../src/UIMain.ui" line="238"/>
         <source>Open the announcement in the default browser</source>
-        <translation>Ouvrir l&apos;annonce dnas le navigateur par défaut</translation>
+        <translation>Ouvrir l&apos;annonce dans le navigateur par défaut</translation>
     </message>
 </context>
 <context>

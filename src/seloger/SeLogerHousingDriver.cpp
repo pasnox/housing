@@ -110,33 +110,25 @@ AbstractCityQuery* SeLogerHousingDriver::cityQuery() const
 
 QMap<QString, QString> SeLogerHousingDriver::roomsInputs() const
 {
-    static QMap<QString, QString> rooms;
-    
-    if ( rooms.isEmpty() ) {
-        rooms[ tr( "All" ) ] = "all";
-        rooms[ "1" ] = "1";
-        rooms[ "2" ] = "2";
-        rooms[ "3" ] = "3";
-        rooms[ "4" ] = "4";
-        rooms[ "5+" ] = "+5";
-    }
-    
+    QMap<QString, QString> rooms;
+    rooms[ tr( "All" ) ] = "all";
+    rooms[ "1" ] = "1";
+    rooms[ "2" ] = "2";
+    rooms[ "3" ] = "3";
+    rooms[ "4" ] = "4";
+    rooms[ "5+" ] = "+5";
     return rooms;
 }
 
 QMap<QString, QString> SeLogerHousingDriver::bedroomsInputs() const
 {
-    static QMap<QString, QString> bedrooms;
-    
-    if ( bedrooms.isEmpty() ) {
-        bedrooms[ tr( "All" ) ] = "all";
-        bedrooms[ "1" ] = "1";
-        bedrooms[ "2" ] = "2";
-        bedrooms[ "3" ] = "3";
-        bedrooms[ "4" ] = "4";
-        bedrooms[ "5+" ] = "+5";
-    }
-    
+    QMap<QString, QString> bedrooms;
+    bedrooms[ tr( "All" ) ] = "all";
+    bedrooms[ "1" ] = "1";
+    bedrooms[ "2" ] = "2";
+    bedrooms[ "3" ] = "3";
+    bedrooms[ "4" ] = "4";
+    bedrooms[ "5+" ] = "+5";
     return bedrooms;
 }
 
