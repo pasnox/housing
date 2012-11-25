@@ -406,6 +406,14 @@
     </message>
 </context>
 <context>
+    <name>QJson::ParserRunnable</name>
+    <message>
+        <location filename="../src/3rdparty/qjson.git/src/parserrunnable.cpp" line="64"/>
+        <source>An error occurred while parsing json: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SeLogerCityQuery</name>
     <message>
         <location filename="../src/seloger/SeLogerCityQuery.cpp" line="65"/>
@@ -426,37 +434,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="103"/>
+        <location filename="../src/UIMain.ui" line="116"/>
         <source>Search Criteria</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="148"/>
+        <location filename="../src/UIMain.ui" line="161"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="163"/>
+        <location filename="../src/UIMain.ui" line="176"/>
         <source>Tools bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="192"/>
+        <location filename="../src/UIMain.ui" line="205"/>
         <source>Switch the ignore state of  the announcement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="205"/>
+        <location filename="../src/UIMain.ui" line="218"/>
         <source>Switch the bookmark state of the announcement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="215"/>
+        <location filename="../src/UIMain.ui" line="228"/>
         <source>Open the announcement in a new tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="225"/>
+        <location filename="../src/UIMain.ui" line="238"/>
         <source>Open the announcement in the default browser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -464,12 +472,27 @@
 <context>
     <name>UIMainPrivate</name>
     <message>
-        <location filename="../src/UIMain.cpp" line="73"/>
+        <location filename="../src/UIMain.cpp" line="40"/>
+        <source>Ignored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.cpp" line="41"/>
+        <source>Bookmarked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.cpp" line="42"/>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.cpp" line="79"/>
         <source>Announcements: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.cpp" line="201"/>
+        <location filename="../src/UIMain.cpp" line="207"/>
         <source>Loading %1...</source>
         <translation type="unfinished"></translation>
     </message>

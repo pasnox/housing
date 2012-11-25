@@ -35,6 +35,12 @@ public:
         ui->tbActions->addSeparator();
         ui->tbActions->addAction( ui->dwInputSearch->toggleViewAction() );
         ui->lStatusBar->clear();
+        ui->lLegend->setText(
+            QString( "<html><head/><body><p><span style=\"text-decoration: line-through; color:#a0a0a0;\">%1</span> | <span style=\"font-weight:600;\">%2</span> | <span style=\"color:#0000ff;\">%3</span></p></body></html>" )
+                .arg( tr( "Ignored" ) )
+                .arg( tr( "Bookmarked" ) )
+                .arg( tr( "Normal" ) )
+        );
         
         connect( NetworkManager::instance(), SIGNAL( finished( QNetworkReply* ) ), this, SLOT( networkRequest_finished( QNetworkReply* ) ) );
         connect( NetworkManager::instance(), SIGNAL( imageFinished( QNetworkReply*, const QByteArray&, const QPixmap& ) ), this, SLOT( networkRequest_imageFinished( QNetworkReply*, const QByteArray&, const QPixmap& ) ) );
