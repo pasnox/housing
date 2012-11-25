@@ -54,7 +54,9 @@ CONFIG(debug, debug|release) {
     RCC_DIR = $${BUILD_PATH}/release/.rcc
 }
 
-include( src/3rdparty/qjson/qjson.pri )
+include( src/3rdparty/qjson.pri )
+
+RESOURCES *= resources/housing.qrc
 
 TRANSLATIONS *= translations/housing_fr_FR.ts \
     translations/housing_en_US.ts

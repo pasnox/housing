@@ -147,7 +147,7 @@ bool SeLogerHousingDriver::isOwnUrl( const QUrl& url ) const
 
 QByteArray SeLogerHousingDriver::testCase() const
 {
-    QFile file( "/home/pasnox/Developpement/C++/Qt4/housing/src/seloger/testcase.xml" );
+    QFile file( ":/SeLoger.com/testcase.xml" );
     
     if ( !file.open( QIODevice::ReadOnly ) ) {
         return QByteArray();
@@ -158,7 +158,7 @@ QByteArray SeLogerHousingDriver::testCase() const
 
 QString SeLogerHousingDriver::xPathQuery() const
 {
-    QFile file( "/home/pasnox/Developpement/C++/Qt4/housing/src/seloger/testcase.xq" );
+    QFile file( ":/SeLoger.com/xquery.xq" );
     
     if ( !file.open( QIODevice::ReadOnly ) ) {
         return QString::null;
