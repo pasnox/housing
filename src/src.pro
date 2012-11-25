@@ -68,7 +68,11 @@ fresh {
 
         include( $$FRESH_PATH/qmake-extensions/qmake-extensions.pri )
 
-        FRESH_SOURCES_PATHS = $$getFolders( $$FRESH_PATH/src )
+        Q_PWD = $${PWD}
+        Q_ENV_PWD = $$(PWD)
+        FRESH_SOURCES_ROOT_PATH = $${FRESH_PATH}
+        !isEqual( Q_PWD, $${Q_ENV_PWD} ):FRESH_SOURCES_ROOT_PATH = "$${PWD}/$${FRESH_PATH}"
+        FRESH_SOURCES_PATHS = $$getFolders( $$FRESH_SOURCES_ROOT_PATH/src )
 
         DEFINES *= FRESH_CORE_BUILD
 
@@ -76,7 +80,7 @@ fresh {
         DEPENDPATH *= $$FRESH_PATH/include/FreshCore \
             $$FRESH_PATH/include/FreshGui
 
-        INCLUDEPATH *= $$FRESH_PATH/include
+        INCLUDEPATH *= $$FRESH_SOURCES_ROOT_PATH/include
         INCLUDEPATH *= $${FRESH_SOURCES_PATHS}
 
         PRE_TARGETDEPS *= $${FRESH_PATH}
