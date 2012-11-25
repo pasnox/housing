@@ -15,8 +15,6 @@
 ###########################################################################################
 
 XUP.QT_VERSION = Qt System (4.8.3)
-XUP.TRANSLATIONS_BASENAME = housing
-XUP.TRANSLATIONS_DIRECTORY = translations
 XUP.OTHERS_PLATFORM_TARGET_DEFAULT = /ramdisk/housing/housing
 
 TEMPLATE = subdirs
