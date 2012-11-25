@@ -53,6 +53,46 @@ CONFIG(debug, debug|release) {
     RCC_DIR = $${BUILD_PATH}/release/rcc
 }
 
+win32_crossbuild {
+    exists( "$(QT_WIN32_PATH)/lib/*fresh*" ):CONFIG *= fresh
+} else {
+    exists( "$$[QT_INSTALL_LIBS]/*fresh*" ):CONFIG *= fresh
+}
+
+fresh {
+    !build_pass:message( "Using system fresh library." )
+} else {
+    exists( 3rdparty/fresh.git/fresh.pro ) {
+        !build_pass:message( "Using bundled fresh library." )
+        FRESH_PATH = 3rdparty/fresh.git
+
+        include( $$FRESH_PATH/qmake-extensions/qmake-extensions.pri )
+
+        FRESH_SOURCES_PATHS = $$getFolders( $$FRESH_PATH/src )
+
+        DEFINES *= FRESH_CORE_BUILD
+
+        DEPENDPATH *= $${FRESH_SOURCES_PATHS}
+        DEPENDPATH *= $$FRESH_PATH/include/FreshCore \
+            $$FRESH_PATH/include/FreshGui
+
+        INCLUDEPATH *= $$FRESH_PATH/include
+        INCLUDEPATH *= $${FRESH_SOURCES_PATHS}
+
+        PRE_TARGETDEPS *= $${FRESH_PATH}
+
+        QMAKE_RPATHDIR *= $$FRESH_PATH/build
+        macx:LIBS *= -F$$FRESH_PATH/build
+        LIBS *= -L$$FRESH_PATH/build
+
+        QT *= xml network
+        !macx:qtAddLibrary( fresh )
+        macx:LIBS *= -lfresh
+    } else {
+        !build_pass:error( "Fresh library not found - Execute: git submodule init && git submodule update." )
+    }
+}
+
 include( 3rdparty/qjson.pri )
 
 RESOURCES *= ../resources/housing.qrc
