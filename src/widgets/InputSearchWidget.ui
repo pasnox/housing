@@ -314,7 +314,7 @@
   <customwidget>
    <class>pComboBox</class>
    <extends>QComboBox</extends>
-   <header>widgets/pComboBox.h</header>
+   <header>FreshGui/pComboBox</header>
   </customwidget>
  </customwidgets>
  <resources/>

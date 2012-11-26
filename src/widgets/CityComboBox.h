@@ -1,7 +1,7 @@
 #ifndef CITYCOMBOBOX_H
 #define CITYCOMBOBOX_H
 
-#include "pComboBox.h"
+#include "FreshGui/pComboBox"
 
 #include "interface/City.h"
 

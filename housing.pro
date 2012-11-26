@@ -20,21 +20,7 @@ XUP.OTHERS_PLATFORM_TARGET_DEFAULT = /ramdisk/housing/housing
 TEMPLATE = subdirs
 CONFIG *= ordered
 
-win32_crossbuild {
-    exists( "$(QT_WIN32_PATH)/lib/*fresh*" ):CONFIG *= fresh
-} else {
-    exists( "$$[QT_INSTALL_LIBS]/*fresh*" ):CONFIG *= fresh
-}
-
-fresh {
-    !build_pass:message( "Using system fresh library." )
-} else {
-    exists( src/3rdparty/fresh.git/fresh.pro ) {
-        SUBDIRS *= src/3rdparty/fresh.git/fresh.pro
-        !build_pass:message( "Using bundled fresh library." )
-    } else {
-        !build_pass:error( "Fresh library not found - Execute: git submodule init && git submodule update." )
-    }
-}
+FRESH_BUNDLE_PATH = src/3rdparty/fresh.git
+include( fresh-bundle-check.pri )
 
 SUBDIRS *= src/src.pro
