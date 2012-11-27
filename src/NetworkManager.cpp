@@ -1,13 +1,15 @@
 #include "NetworkManager.h"
 #include "Housing.h"
 
+#include <QPointer>
+#include <QApplication>
 #include <QSet>
 #include <QUrl>
 #include <QNetworkReply>
 #include <QPixmap>
 #include <QDebug>
 
-Q_GLOBAL_STATIC( NetworkManager, networkManagerInstance )
+static QPointer<NetworkManager> NetworkManagerInstance;
 
 class NetworkManagerPrivate : public QObject {
     Q_OBJECT
@@ -190,7 +192,11 @@ QNetworkReply* NetworkManager::postImage( const QNetworkRequest& request, QHttpM
 
 NetworkManager* NetworkManager::instance()
 {
-    return networkManagerInstance();
+    if ( !NetworkManagerInstance ) {
+        NetworkManagerInstance = new NetworkManager( qApp );
+    }
+    
+    return NetworkManagerInstance;
 }
 
 #include "NetworkManager.moc"
