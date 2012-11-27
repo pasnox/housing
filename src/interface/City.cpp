@@ -50,6 +50,15 @@ City::~City()
 {
 }
 
+City& City::operator=( const City& other )
+{
+    if ( this != &other ) {
+        d = other.d;
+    }
+    
+    return *this;
+}
+
 bool City::operator==( const City& other ) const
 {
     return d->value == other.d->value;

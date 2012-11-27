@@ -17,6 +17,7 @@ public:
     City( const QString& label, const QString& value, const QString& code );
     virtual ~City();
     
+    virtual City& operator=( const City& other );
     virtual bool operator==( const City& other ) const;
     
     bool isNull() const;

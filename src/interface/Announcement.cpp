@@ -269,6 +269,15 @@ Announcement::operator QVariant() const
     return QVariant::fromValue( *this );
 }
 
+Announcement& Announcement::operator=( const Announcement& other )
+{
+    if ( this != &other ) {
+        d = other.d;
+    }
+    
+    return *this;
+}
+
 bool Announcement::operator==( const Announcement& other ) const
 {
     return d->id == other.d->id;

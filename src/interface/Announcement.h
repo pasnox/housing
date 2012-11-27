@@ -22,6 +22,7 @@ public:
     
     virtual operator QVariant();
     virtual operator QVariant() const;
+    virtual Announcement& operator=( const Announcement& other );
     virtual bool operator==( const Announcement& other ) const;
     
     bool isNull() const;
