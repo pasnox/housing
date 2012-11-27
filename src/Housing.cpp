@@ -19,25 +19,14 @@ QString Housing::toPlainText( const QString& html )
 QVariant Housing::fromJson( const QByteArray& json, bool* ok )
 {
     QJson::Parser parser;
-    bool result = false;
-    const QVariant variant = parser.parse( json, &result );
-    
-    if ( ok ) {
-        *ok = result;
-    }
-    
+    const QVariant variant = parser.parse( json, ok );
     return variant;
 }
 
 QByteArray Housing::toJson( const QVariant& variant, bool* ok )
 {
     QJson::Serializer serializer;
-    const QByteArray json = serializer.serialize( variant );
-    
-    if ( ok ) {
-        *ok = !json.isNull();
-    }
-    
+    const QByteArray json = serializer.serialize( variant, ok );
     return json;
 }
 
