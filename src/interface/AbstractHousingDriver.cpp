@@ -265,11 +265,11 @@ bool AbstractHousingDriver::parseStandardDomDocument( const QString& xml, Announ
     const QDomNodeList nodes = document.elementsByTagName( "announcement" );
     
     if ( properties ) {
-        properties->page = root.attribute( "page", "1" ).toInt();
-        properties->totalPage = root.attribute( "totalPage", QString::number( nodes.count() > 0 ? 1 : 0 ) ).toInt();
+        properties->page = qMax( root.attribute( "page", "0" ).toInt(), 1 );
+        properties->totalPage = qMax( root.attribute( "totalPage", "0" ).toInt(), 1 );
         properties->found = root.attribute( "found", "0" ).toInt();
         properties->visible = root.attribute( "visible", "0" ).toInt();
-        properties->hasNextPage = root.attribute( "totalPage" ).toInt() > properties->page;
+        properties->hasNextPage = properties->totalPage > properties->page;
     }
     
     for ( int i = 0; i < nodes.count(); i++ ) {
