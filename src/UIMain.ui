@@ -47,6 +47,9 @@
           <property name="frameShadow">
            <enum>QFrame::Plain</enum>
           </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
           </property>
@@ -103,7 +106,7 @@
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>83</height>
+     <height>85</height>
     </size>
    </property>
    <property name="features">
@@ -159,6 +162,9 @@
          <widget class="QPushButton" name="pbSearch">
           <property name="text">
            <string>Search</string>
+          </property>
+          <property name="icon">
+           <iconset theme="system-search"/>
           </property>
          </widget>
         </item>

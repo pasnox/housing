@@ -8,6 +8,7 @@
 #include <QPixmapCache>
 #include <QWebView>
 #include <QSettings>
+#include <QMovie>
 #include <QDesktopServices>
 #include <QDebug>
 
@@ -19,6 +20,8 @@ class UIMainPrivate : public QObject {
 public:
     UIMain* widget;
     Ui_UIMain* ui;
+    QMovie* movie;
+    QLabel* movieLabel;
     AnnouncementModel* model;
 
 public:
@@ -26,8 +29,16 @@ public:
         : QObject( _widget ),
             widget( _widget ),
             ui( new Ui_UIMain ),
+            movie( new QMovie( ":/animations/loading.gif" ) ),
+            movieLabel( new QLabel ),
             model( new AnnouncementModel( this ) )
     {
+        movie->setSpeed( 70 );
+        movie->setScaledSize( QSize( 15, 15 ) );
+        movie->start();
+        
+        movieLabel->setMovie( movie );
+        
         ui->setupUi( widget );
         ui->lvAnnouncements->setModel( model );
         ui->lvAnnouncements->addActions( ui->tbActions->actions() );
@@ -45,6 +56,7 @@ public:
         connect( NetworkManager::instance(), SIGNAL( finished( QNetworkReply* ) ), this, SLOT( networkRequest_finished( QNetworkReply* ) ) );
         connect( NetworkManager::instance(), SIGNAL( imageFinished( QNetworkReply*, const QByteArray&, const QPixmap& ) ), this, SLOT( networkRequest_imageFinished( QNetworkReply*, const QByteArray&, const QPixmap& ) ) );
         connect( model, SIGNAL( requestImageDownload( const QString& ) ), this, SLOT( model_requestImageDownload( const QString& ) ) );
+        connect( model, SIGNAL( requestFetchMore() ), this, SLOT( model_requestFetchMore() ) );
         connect( ui->pbSearch, SIGNAL( clicked() ), this, SLOT( pbSearch_clicked() ) );
         connect( ui->twPages, SIGNAL( tabCloseRequested( int ) ), this, SLOT( twPages_tabCloseRequested( int ) ) );
         connect( ui->lvAnnouncements->selectionModel(), SIGNAL( selectionChanged( const QItemSelection&, const QItemSelection& ) ), this, SLOT( lvAnnouncements_selectionChanged() ) );
@@ -57,11 +69,55 @@ public:
     }
     
     ~UIMainPrivate() {
+        delete movie;
         delete ui;
     }
     
     void retranslateUi() {
         ui->retranslateUi( widget );
+    }
+    
+    void sendSearchRequest( int page ) {
+        AbstractHousingDriver* driver = ui->iswSearch->currentDriver();
+        
+        if ( !driver ) {
+            return;
+        }
+        
+        model->setIgnoredIdSet( ui->iswSearch->ignoredIdSet() );
+        model->setBookmarkedIdSet( ui->iswSearch->bookmarkedIdSet() );
+        
+        if ( TEST_CASE_DEBUG ) {
+            Announcement::List announcements;
+            AbstractHousingDriver::RequestResultProperties properties;
+            const bool ok = driver->parseSearchRequestData( driver->testCase(), announcements, &properties );
+            
+            model->setCurrentPage( properties.page );
+            model->setCanFetchMore( properties.hasNextPage );
+            
+            if ( ok ) {
+                model->setAnnouncements( announcements );
+            }
+            else {
+                qWarning( "%s: Testcase error", Q_FUNC_INFO );
+            }
+        }
+        else {
+            const AbstractHousingDriver::RequestProperties properties = ui->iswSearch->requestProperties();
+            QNetworkRequest request;
+            QByteArray data;
+            
+            driver->setUpSearchRequest( request, data, properties, page );
+            
+            if ( data.isEmpty() ) {
+                NetworkManager::instance()->get( request );
+            }
+            else {
+                NetworkManager::instance()->post( request, data );
+            }
+            
+            ui->lvAnnouncements->setCornerWidget( movieLabel );
+        }
     }
 
 public slots:
@@ -70,14 +126,25 @@ public slots:
         
         if ( driver && driver->isOwnUrl( reply->request().url() ) ) {
             Announcement::List announcements;
-            const bool ok = driver->parseSearchRequestData( reply->readAll(), announcements );
+            AbstractHousingDriver::RequestResultProperties properties;
+            const bool ok = driver->parseSearchRequestData( reply->readAll(), announcements, &properties );
             
             if ( ok ) {
+                model->setCurrentPage( properties.page );
+                model->setCanFetchMore( properties.hasNextPage );
                 model->addAnnouncements( announcements );
             }
             
-            ui->lStatusBar->setText( tr( "Announcements: %1" ).arg( model->rowCount() ) );
+            ui->lStatusBar->setText(
+                tr( "Total pages: %1 | Found: %2 | Visible: %3 | Announcements: %4" )
+                    .arg( properties.totalPage )
+                    .arg( properties.found )
+                    .arg( properties.visible )
+                    .arg( model->rowCount() )
+            );
         }
+        
+        ui->lvAnnouncements->setCornerWidget( 0 );
     }
     
     void networkRequest_imageFinished( QNetworkReply* reply, const QByteArray& data, const QPixmap& pixmap ) {
@@ -94,6 +161,10 @@ public slots:
     
     void model_requestImageDownload( const QString& url ) {
         NetworkManager::instance()->getImage( QNetworkRequest( url ) );
+    }
+    
+    void model_requestFetchMore() {
+        sendSearchRequest( model->currentPage() +1 );
     }
     
     void view_loadFinished( bool ok ) {
@@ -119,41 +190,8 @@ public slots:
     }
     
     void pbSearch_clicked() {
-        AbstractHousingDriver* driver = ui->iswSearch->currentDriver();
-        
-        if ( !driver ) {
-            return;
-        }
-        
         model->clear();
-        model->setIgnoredIdSet( ui->iswSearch->ignoredIdSet() );
-        model->setBookmarkedIdSet( ui->iswSearch->bookmarkedIdSet() );
-        
-        if ( TEST_CASE_DEBUG ) {
-            Announcement::List announcements;
-            const bool ok = driver->parseSearchRequestData( driver->testCase(), announcements );
-            
-            if ( ok ) {
-                model->setAnnouncements( announcements );
-            }
-            else {
-                qWarning( "%s: Testcase error", Q_FUNC_INFO );
-            }
-        }
-        else {
-            const AbstractHousingDriver::RequestProperties properties = ui->iswSearch->requestProperties();
-            QNetworkRequest request;
-            QByteArray data;
-            
-            driver->setUpSearchRequest( request, data, properties );
-            
-            if ( data.isEmpty() ) {
-                NetworkManager::instance()->get( request );
-            }
-            else {
-                NetworkManager::instance()->post( request, data );
-            }
-        }
+        sendSearchRequest( 1 );
     }
     
     void twPages_tabCloseRequested( int index ) {
