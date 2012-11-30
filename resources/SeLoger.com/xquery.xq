@@ -1,5 +1,5 @@
 /recherche/
-<announcements summary="{resumeSansTri}" found="{nbTrouvees}" visible="{nbAffichables}" >
+<announcements summary="{resumeSansTri}" found="{nbTrouvees}" visible="{nbAffichables}" page="{pageCourante}" totalPage="{pageMax}" >
 {
     //annonce/
     <announcement id="{idAnnonce}" url="{permaLien}" created="{dtCreation}" updated="{dtFraicheur}" >
