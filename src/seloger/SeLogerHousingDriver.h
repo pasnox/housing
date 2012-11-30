@@ -27,9 +27,8 @@ public:
     virtual bool isOwnUrl( const QUrl& url ) const;
     virtual QByteArray testCase() const;
     virtual QString xPathQuery() const;
-    virtual void setUpSearchRequest( QNetworkRequest& request, QByteArray& data, const AbstractHousingDriver::RequestProperties& properties ) const;
-    virtual bool parseSearchRequestData( const QByteArray& data, Announcement::List& announcements, QString* error = 0 ) const;
-    virtual bool canFetchMore() const;
+    virtual void setUpSearchRequest( QNetworkRequest& request, QByteArray& data, const AbstractHousingDriver::RequestProperties& properties, int page ) const;
+    virtual bool parseSearchRequestData( const QByteArray& data, Announcement::List& announcements, RequestResultProperties* properties = 0 ) const;
 
 private:
     SeLogerHousingDriverPrivate* d;

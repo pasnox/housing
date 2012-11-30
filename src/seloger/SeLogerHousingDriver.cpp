@@ -159,7 +159,7 @@ QString SeLogerHousingDriver::xPathQuery() const
     return QString::fromUtf8( file.readAll() );
 }
 
-void SeLogerHousingDriver::setUpSearchRequest( QNetworkRequest& request, QByteArray& data, const AbstractHousingDriver::RequestProperties& properties ) const
+void SeLogerHousingDriver::setUpSearchRequest( QNetworkRequest& request, QByteArray& data, const AbstractHousingDriver::RequestProperties& properties, int page ) const
 {
     Q_UNUSED( data );
     
@@ -337,12 +337,16 @@ void SeLogerHousingDriver::setUpSearchRequest( QNetworkRequest& request, QByteAr
             break;
     }
     
+    if ( page > 1 ) {
+        url.addQueryItem( "SEARCHpg", QString::number( page ) );
+    }
+    
     //qWarning( "%s: %s", Q_FUNC_INFO, qPrintable( url.toString() ) );
     
     request.setUrl( url );
 }
 
-bool SeLogerHousingDriver::parseSearchRequestData( const QByteArray& data, Announcement::List& announcements, QString* error ) const
+bool SeLogerHousingDriver::parseSearchRequestData( const QByteArray& data, Announcement::List& announcements, RequestResultProperties* properties ) const
 {
     // before parsing the announce, we convert the xml to a standard simple one using xquery
     const QString xpath = xPathQuery();
@@ -350,6 +354,10 @@ bool SeLogerHousingDriver::parseSearchRequestData( const QByteArray& data, Annou
     QString xml;
     
     if ( !query.setFocus( QString::fromUtf8( data ) ) ) {
+        if ( properties ) {
+            properties->error = tr( "%s: Can set focus" ).arg( Q_FUNC_INFO );
+        }
+        
         qWarning( "%s: 1", Q_FUNC_INFO );
         return false;
     }
@@ -357,19 +365,22 @@ bool SeLogerHousingDriver::parseSearchRequestData( const QByteArray& data, Annou
     query.setQuery( xpath, QUrl( d->webServiceUrl() ) );
     
     if ( !query.isValid() ) {
+        if ( properties ) {
+            properties->error = tr( "%s: Invalid query" ).arg( Q_FUNC_INFO );
+        }
+        
         qWarning( "%s: 2", Q_FUNC_INFO );
         return false;
     }
     
     if ( !query.evaluateTo( &xml ) ) {
+        if ( properties ) {
+            properties->error = tr( "%s: Can't evaluateTo" ).arg( Q_FUNC_INFO );
+        }
+        
         qWarning( "%s: 3", Q_FUNC_INFO );
         return false;
     }
     
-    return parseStandardDomDocument( xml, announcements, error );
-}
-
-bool SeLogerHousingDriver::canFetchMore() const
-{
-    return false;
+    return parseStandardDomDocument( xml, announcements, properties );
 }
