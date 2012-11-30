@@ -1,6 +1,7 @@
 #include "AbstractHousingDriver.h"
 
 #include <QDomDocument>
+#include <QDebug>
 
 class AbstractHousingDriverPrivate {
 public:
@@ -190,6 +191,15 @@ int AbstractHousingDriver::RequestProperties::maximumGround() const
     return inputs.value( AbstractHousingDriver::SearchInputMaximumGround ).toInt();
 }
 
+AbstractHousingDriver::RequestResultProperties::RequestResultProperties()
+    : page( -1 ),
+        totalPage( -1 ),
+        found( -1 ),
+        visible( -1 ),
+        hasNextPage( false )
+{
+}
+
 AbstractHousingDriver::AbstractHousingDriver( QObject* parent )
     : QObject( parent )
 {
@@ -241,17 +251,26 @@ AbstractHousingDriver::List AbstractHousingDriver::registeredDrivers()
     return mRegisteredDrivers.drivers.values();
 }
 
-bool AbstractHousingDriver::parseStandardDomDocument( const QString& xml, Announcement::List& announcements, QString* error ) const
+bool AbstractHousingDriver::parseStandardDomDocument( const QString& xml, Announcement::List& announcements, RequestResultProperties* properties ) const
 {
     QDomDocument document;
     int errorLine;
     int errorColumn;
     
-    if ( !document.setContent( xml, error, &errorLine, &errorColumn ) ) {
+    if ( !document.setContent( xml, properties ? &properties->error : 0, &errorLine, &errorColumn ) ) {
         return false;
     }
     
+    const QDomElement root = document.documentElement();
     const QDomNodeList nodes = document.elementsByTagName( "announcement" );
+    
+    if ( properties ) {
+        properties->page = root.attribute( "page", "1" ).toInt();
+        properties->totalPage = root.attribute( "totalPage", "0" ).toInt();
+        properties->found = root.attribute( "found", "0" ).toInt();
+        properties->visible = root.attribute( "visible", "0" ).toInt();
+        properties->hasNextPage = root.attribute( "totalPage" ).toInt() > properties->page;
+    }
     
     for ( int i = 0; i < nodes.count(); i++ ) {
         const Announcement announcement( nodes.at( i ).toElement() );

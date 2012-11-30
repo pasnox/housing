@@ -151,6 +151,17 @@ public:
         int maximumGround() const;
     };
     
+    struct RequestResultProperties {
+        int page;
+        int totalPage;
+        int found;
+        int visible;
+        bool hasNextPage;
+        QString error;
+        
+        RequestResultProperties();
+    };
+    
     typedef QList<AbstractHousingDriver*> List;
     
     AbstractHousingDriver( QObject* parent = 0 );
@@ -178,15 +189,14 @@ public:
     virtual bool isOwnUrl( const QUrl& url ) const = 0;
     virtual QByteArray testCase() const = 0;
     virtual QString xPathQuery() const = 0;
-    virtual void setUpSearchRequest( QNetworkRequest& request, QByteArray& data, const AbstractHousingDriver::RequestProperties& properties ) const = 0;
-    virtual bool parseSearchRequestData( const QByteArray& data, Announcement::List& announcements, QString* error = 0 ) const = 0;
-    virtual bool canFetchMore() const = 0;
+    virtual void setUpSearchRequest( QNetworkRequest& request, QByteArray& data, const AbstractHousingDriver::RequestProperties& properties, int page ) const = 0;
+    virtual bool parseSearchRequestData( const QByteArray& data, Announcement::List& announcements, RequestResultProperties* properties = 0 ) const = 0;
     
     static void registerDriver( AbstractHousingDriver* driver );
     static AbstractHousingDriver::List registeredDrivers();
 
 protected:
-    bool parseStandardDomDocument( const QString& xml, Announcement::List& announcements, QString* error = 0 ) const;
+    bool parseStandardDomDocument( const QString& xml, Announcement::List& announcements, RequestResultProperties* properties = 0 ) const;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS( AbstractHousingDriver::SearchTypes )
