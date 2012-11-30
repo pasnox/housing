@@ -84,7 +84,8 @@ HEADERS *= NetworkManager.h \
     widgets/InputSearchWidget.h \
     widgets/AnnouncementWidget.h \
     interface/AnnouncementItemDelegate.h \
-    widgets/AnnouncementView.h
+    widgets/AnnouncementView.h \
+    interface/AnnouncementProxyModel.h
 
 SOURCES *= main.cpp \
     NetworkManager.cpp \
@@ -103,4 +104,5 @@ SOURCES *= main.cpp \
     widgets/InputSearchWidget.cpp \
     widgets/AnnouncementWidget.cpp \
     interface/AnnouncementItemDelegate.cpp \
-    widgets/AnnouncementView.cpp
+    widgets/AnnouncementView.cpp \
+    interface/AnnouncementProxyModel.cpp

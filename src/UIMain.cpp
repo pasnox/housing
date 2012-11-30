@@ -1,6 +1,7 @@
 #include "UIMain.h"
 #include "ui_UIMain.h"
 #include "interface/AnnouncementModel.h"
+#include "interface/AnnouncementProxyModel.h"
 #include "NetworkManager.h"
 
 #include <QEvent>
@@ -23,6 +24,7 @@ public:
     QMovie* movie;
     QLabel* movieLabel;
     AnnouncementModel* model;
+    AnnouncementProxyModel* proxy;
 
 public:
     UIMainPrivate( UIMain* _widget )
@@ -31,7 +33,8 @@ public:
             ui( new Ui_UIMain ),
             movie( new QMovie( ":/animations/loading.gif" ) ),
             movieLabel( new QLabel ),
-            model( new AnnouncementModel( this ) )
+            model( new AnnouncementModel( this ) ),
+            proxy( new AnnouncementProxyModel( model ) )
     {
         movie->setSpeed( 70 );
         movie->setScaledSize( QSize( 15, 15 ) );
@@ -40,12 +43,13 @@ public:
         movieLabel->setMovie( movie );
         
         ui->setupUi( widget );
-        ui->lvAnnouncements->setModel( model );
+        ui->lvAnnouncements->setModel( proxy );
         ui->lvAnnouncements->addActions( ui->tbActions->actions() );
         ui->dwInputSearch->toggleViewAction()->setIcon( ui->twPages->tabIcon( 0 ) );
         ui->tbActions->addSeparator();
+        ui->tbActions->addAction( proxy->filterAction() );
+        ui->tbActions->addSeparator();
         ui->tbActions->addAction( ui->dwInputSearch->toggleViewAction() );
-        ui->lStatusBar->clear();
         ui->lLegend->setText(
             QString( "<html><head/><body><p><span style=\"text-decoration: line-through; color:#a0a0a0;\">%1</span> | <span style=\"font-weight:600;\">%2</span> | <span style=\"color:#0000ff;\">%3</span></p></body></html>" )
                 .arg( tr( "Ignored" ) )
@@ -57,6 +61,7 @@ public:
         connect( NetworkManager::instance(), SIGNAL( imageFinished( QNetworkReply*, const QByteArray&, const QPixmap& ) ), this, SLOT( networkRequest_imageFinished( QNetworkReply*, const QByteArray&, const QPixmap& ) ) );
         connect( model, SIGNAL( requestImageDownload( const QString& ) ), this, SLOT( model_requestImageDownload( const QString& ) ) );
         connect( model, SIGNAL( requestFetchMore() ), this, SLOT( model_requestFetchMore() ) );
+        connect( proxy, SIGNAL( rowCountChanged( int ) ), ui->lAnnouncementsNumber, SLOT( setNum( int ) ) );
         connect( ui->pbSearch, SIGNAL( clicked() ), this, SLOT( pbSearch_clicked() ) );
         connect( ui->twPages, SIGNAL( tabCloseRequested( int ) ), this, SLOT( twPages_tabCloseRequested( int ) ) );
         connect( ui->lvAnnouncements->selectionModel(), SIGNAL( selectionChanged( const QItemSelection&, const QItemSelection& ) ), this, SLOT( lvAnnouncements_selectionChanged() ) );
@@ -119,6 +124,10 @@ public:
             ui->lvAnnouncements->setCornerWidget( movieLabel );
         }
     }
+    
+    QModelIndex selectedSourceIndex() const {
+        return proxy->mapToSource( ui->lvAnnouncements->selectionModel()->selectedIndexes().value( 0 ) );
+    }
 
 public slots:
     void  networkRequest_finished( QNetworkReply* reply ) {
@@ -135,13 +144,10 @@ public slots:
                 model->addAnnouncements( announcements );
             }
             
-            ui->lStatusBar->setText(
-                tr( "Total pages: %1 | Found: %2 | Visible: %3 | Announcements: %4" )
-                    .arg( properties.totalPage )
-                    .arg( properties.found )
-                    .arg( properties.visible )
-                    .arg( model->rowCount() )
-            );
+            ui->lTotalPagesNumber->setNum( properties.totalPage );
+            ui->lFoundNumber->setNum( properties.found );
+            ui->lVisibleNumber->setNum( properties.visible );
+            ui->lAnnouncementsNumber->setNum( proxy->rowCount() );
         }
         
         ui->lvAnnouncements->setCornerWidget( 0 );
@@ -177,7 +183,7 @@ public slots:
     }
     
     void lvAnnouncements_selectionChanged() {
-        const QModelIndex index = ui->lvAnnouncements->selectionModel()->selectedIndexes().value( 0 );
+        const QModelIndex index = selectedSourceIndex();
         const QString url = index.data( AnnouncementModel::UrlRole ).toString();
         const int id = index.data( AnnouncementModel::IdRole ).toInt();
         
@@ -207,7 +213,7 @@ public slots:
     }
     
     void switchSelectedAnnouncementIgnoreState( bool ignore ) {
-        const QModelIndex index = ui->lvAnnouncements->selectionModel()->selectedIndexes().value( 0 );
+        const QModelIndex index = selectedSourceIndex();
         const QString url = index.data( AnnouncementModel::UrlRole ).toString();
         const int id = index.data( AnnouncementModel::IdRole ).toInt();
         ui->iswSearch->setIgnoredId( id, ignore );
@@ -219,7 +225,7 @@ public slots:
     }
     
     void switchSelectedAnnouncementBookmarkState( bool bookmark ) {
-        const QModelIndex index = ui->lvAnnouncements->selectionModel()->selectedIndexes().value( 0 );
+        const QModelIndex index = selectedSourceIndex();
         const QString url = index.data( AnnouncementModel::UrlRole ).toString();
         const int id = index.data( AnnouncementModel::IdRole ).toInt();
         ui->iswSearch->setBookmarkedId( id, bookmark );
@@ -231,7 +237,7 @@ public slots:
     }
     
     void openSelectedAnnouncementInNewTab() {
-        const QModelIndex index = ui->lvAnnouncements->selectionModel()->selectedIndexes().value( 0 );
+        const QModelIndex index = selectedSourceIndex();
         const QString url = index.data( AnnouncementModel::UrlRole ).toString();
         const int id = index.data( AnnouncementModel::IdRole ).toInt();
         
@@ -248,7 +254,7 @@ public slots:
     }
     
     void openSelectedAnnouncementInDefaultBrowser() {
-        const QModelIndex index = ui->lvAnnouncements->selectionModel()->selectedIndexes().value( 0 );
+        const QModelIndex index = selectedSourceIndex();
         const QString url = index.data( AnnouncementModel::UrlRole ).toString();
         QDesktopServices::openUrl( url );
     }
