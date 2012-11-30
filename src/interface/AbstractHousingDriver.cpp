@@ -266,7 +266,7 @@ bool AbstractHousingDriver::parseStandardDomDocument( const QString& xml, Announ
     
     if ( properties ) {
         properties->page = root.attribute( "page", "1" ).toInt();
-        properties->totalPage = root.attribute( "totalPage", "0" ).toInt();
+        properties->totalPage = root.attribute( "totalPage", QString::number( nodes.count() > 0 ? 1 : 0 ) ).toInt();
         properties->found = root.attribute( "found", "0" ).toInt();
         properties->visible = root.attribute( "visible", "0" ).toInt();
         properties->hasNextPage = root.attribute( "totalPage" ).toInt() > properties->page;
