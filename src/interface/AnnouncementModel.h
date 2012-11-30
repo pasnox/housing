@@ -31,6 +31,8 @@ public:
     virtual QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const;
     virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
     virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );
+    virtual bool canFetchMore( const QModelIndex& parent ) const;
+    virtual void fetchMore( const QModelIndex& parent );
     
     void clear();
     void addAnnouncements( const Announcement::List& announcements );
@@ -40,6 +42,11 @@ public:
     void removeAnnouncement( const QModelIndex& index );
     Announcement::List announcements() const;
     Announcement announcement( const QModelIndex& index ) const;
+    
+    void setCanFetchMore( bool can );
+    
+    void setCurrentPage( int page );
+    int currentPage() const;
     
     void setIgnoredIdSet( const QSet<int> ids );
     QSet<int> ignoredIdSet() const;
@@ -55,6 +62,7 @@ private:
 
 signals:
     void requestImageDownload( const QString& url );
+    void requestFetchMore();
 };
 
 #endif // ANNOUNCEMENTMODEL_H

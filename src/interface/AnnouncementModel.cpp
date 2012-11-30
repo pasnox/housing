@@ -12,10 +12,14 @@ public:
 	QSet<int> ignoredIdSet;
 	QSet<int> bookmarkedIdSet;
 	QPixmap emptyPixmap;
+	bool canFetch;
+	int page;
 
 public:
 	AnnouncementModelPrivate()
-		: emptyPixmap( QPixmap( 100, 100 ) )
+		: emptyPixmap( QPixmap( 100, 100 ) ),
+			canFetch( false ),
+			page( -1 )
 	{
         emptyPixmap.fill( Qt::transparent );
 	}
@@ -178,6 +182,19 @@ void AnnouncementModel::sort( int column, Qt::SortOrder order )
 	qWarning( "%s: sort", Q_FUNC_INFO );
 }
 
+bool AnnouncementModel::canFetchMore( const QModelIndex& parent ) const
+{
+	return parent == QModelIndex() ? d->canFetch : false;
+}
+
+void AnnouncementModel::fetchMore( const QModelIndex& parent )
+{
+	if ( parent == QModelIndex() && d->canFetch ) {
+		d->canFetch = false;
+		emit requestFetchMore();
+	}
+}
+
 void AnnouncementModel::clear()
 {
     const int count = d->announcements.count();
@@ -259,6 +276,21 @@ Announcement::List AnnouncementModel::announcements() const
 Announcement AnnouncementModel::announcement( const QModelIndex& index ) const
 {
     return d->announcements.value( index.row() );
+}
+
+void AnnouncementModel::setCanFetchMore( bool can )
+{
+	d->canFetch = can;
+}
+
+void AnnouncementModel::setCurrentPage( int page )
+{
+	d->page = page;
+}
+
+int AnnouncementModel::currentPage() const
+{
+	return d->page;
 }
 
 void AnnouncementModel::setIgnoredIdSet( const QSet<int> ids )
