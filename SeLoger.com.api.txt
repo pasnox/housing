@@ -8,6 +8,8 @@ Nb total d'annonce: http://ws.seloger.com/nbAnnoncesTotal.xml
 
 Base url: http://ws.seloger.com/search.xml?
 
+Page de recherche (SEARCHpg): numerique (SEARCHpg=2)
+
 Type de recherche (idtt): numerique (idtt=2)
     Location: 1
     Achat: 2
