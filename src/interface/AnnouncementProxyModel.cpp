@@ -24,11 +24,10 @@ public:
         filterAction->setText( AnnouncementProxyModel::tr( "Show/Hide ignored announcements" ) );
         
         timer->setSingleShot( true );
-        timer->setInterval( 250 );
+        timer->setInterval( 25 );
         
         connect( filterAction, SIGNAL( triggered() ), this, SLOT( filterAction_triggered() ) );
         connect( timer, SIGNAL( timeout() ), this, SLOT( timer_timeout() ) );
-        connect( model, SIGNAL( changed() ), timer, SLOT( start() ) );
         connect( model, SIGNAL( layoutAboutToBeChanged() ), timer, SLOT( start() ) );
         connect( model, SIGNAL( layoutChanged() ), timer, SLOT( start() ) );
         connect( model, SIGNAL( modelAboutToBeReset() ), timer, SLOT( start() ) );
