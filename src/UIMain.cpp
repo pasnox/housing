@@ -61,7 +61,7 @@ public:
         connect( NetworkManager::instance(), SIGNAL( imageFinished( QNetworkReply*, const QByteArray&, const QPixmap& ) ), this, SLOT( networkRequest_imageFinished( QNetworkReply*, const QByteArray&, const QPixmap& ) ) );
         connect( model, SIGNAL( requestImageDownload( const QString& ) ), this, SLOT( model_requestImageDownload( const QString& ) ) );
         connect( model, SIGNAL( requestFetchMore() ), this, SLOT( model_requestFetchMore() ) );
-        connect( proxy, SIGNAL( rowCountChanged( int ) ), ui->lAnnouncementsNumber, SLOT( setNum( int ) ) );
+        connect( proxy, SIGNAL( rowCountChanged( int ) ), this, SLOT( proxy_rowCountChanged( int ) ) );
         connect( ui->pbSearch, SIGNAL( clicked() ), this, SLOT( pbSearch_clicked() ) );
         connect( ui->twPages, SIGNAL( tabCloseRequested( int ) ), this, SLOT( twPages_tabCloseRequested( int ) ) );
         connect( ui->lvAnnouncements->selectionModel(), SIGNAL( selectionChanged( const QItemSelection&, const QItemSelection& ) ), this, SLOT( lvAnnouncements_selectionChanged() ) );
@@ -173,6 +173,11 @@ public slots:
         sendSearchRequest( model->currentPage() +1 );
     }
     
+    void proxy_rowCountChanged( int count ) {
+        ui->lAnnouncementsNumber->setNum( count );
+        lvAnnouncements_selectionChanged();
+    }
+    
     void view_loadFinished( bool ok ) {
         Q_UNUSED( ok );
         QWebView* view = qobject_cast<QWebView*>( sender() );
@@ -204,6 +209,11 @@ public slots:
         QWidget* w = ui->twPages->widget( index );
         
         if ( w == ui->wSearchResults ) {
+            model->clear();
+            ui->lTotalPagesNumber->setNum( 0 );
+            ui->lFoundNumber->setNum( 0 );
+            ui->lVisibleNumber->setNum( 0 );
+            ui->lAnnouncementsNumber->setNum( 0 );
             return;
         }
         
@@ -222,6 +232,8 @@ public slots:
         if ( ignore && ui->iswSearch->isBookmarkedId( id ) ) {
             ui->aSwitchAnnouncementBookmarkState->trigger();
         }
+        
+        proxy->invalidate();
     }
     
     void switchSelectedAnnouncementBookmarkState( bool bookmark ) {
@@ -234,6 +246,8 @@ public slots:
         if ( bookmark && ui->iswSearch->isIgnoredId( id ) ) {
             ui->aSwitchAnnouncementIgnoreState->trigger();
         }
+        
+        proxy->invalidate();
     }
     
     void openSelectedAnnouncementInNewTab() {
