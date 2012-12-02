@@ -19,7 +19,7 @@ public:
             header( new QHeaderView( Qt::Horizontal, _widget ) ),
 			headerHeight( -1 )
     {
-        header->setResizeMode( QHeaderView::ResizeToContents );
+        header->setResizeMode( QHeaderView::Stretch );
         header->setClickable( true );
         header->setSortIndicatorShown( true );
         
