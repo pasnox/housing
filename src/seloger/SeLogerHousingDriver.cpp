@@ -22,6 +22,7 @@ SeLogerHousingDriver::SeLogerHousingDriver( QObject* parent )
     : AbstractHousingDriver( parent ),
         d( new SeLogerHousingDriverPrivate )
 {
+    Q_UNUSED( QT_TR_NOOP( "All" ) );
 }
 
 SeLogerHousingDriver::~SeLogerHousingDriver()
@@ -355,7 +356,7 @@ bool SeLogerHousingDriver::parseSearchRequestData( const QByteArray& data, Annou
     
     if ( !query.setFocus( QString::fromUtf8( data ) ) ) {
         if ( properties ) {
-            properties->error = tr( "%s: Can set focus" ).arg( Q_FUNC_INFO );
+            properties->error = tr( "%s: Can't set focus" ).arg( Q_FUNC_INFO );
         }
         
         qWarning( "%s: 1", Q_FUNC_INFO );
