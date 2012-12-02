@@ -57,7 +57,7 @@ private slots:
             else {
                 data[ "json" ] = QVariant();
                 data[ "success" ] = false;
-                data[ "message" ] = tr( "Invalid content received." );
+                data[ "message" ] = NetworkManager::tr( "Invalid content received." );
             }
             
             jsonReplies.remove( reply->request().url() );

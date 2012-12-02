@@ -23,44 +23,44 @@ public:
         ui->setupUi( widget );
         
         // TODO: replace with a Fresh pCheckComboBox when possible
-        ui->cbProperties->addItem( tr( "None" ), AbstractHousingDriver::SearchPropertyNone );
-        ui->cbProperties->addItem( tr( "Apartment" ), AbstractHousingDriver::SearchPropertyApartment );
-        ui->cbProperties->addItem( tr( "House / Villa" ), AbstractHousingDriver::SearchPropertyHouseOrVilla );
-        ui->cbProperties->addItem( tr( "Parking / Box" ), AbstractHousingDriver::SearchPropertyParkingOrBox );
-        ui->cbProperties->addItem( tr( "Ground" ), AbstractHousingDriver::SearchPropertyGround );
-        ui->cbProperties->addItem( tr( "Shop" ), AbstractHousingDriver::SearchPropertyShop );
-        ui->cbProperties->addItem( tr( "Commercial Local" ), AbstractHousingDriver::SearchPropertyCommercialLocal );
-        ui->cbProperties->addItem( tr( "Offices" ), AbstractHousingDriver::SearchPropertyOffices );
-        ui->cbProperties->addItem( tr( "Loft / Workshop / Surface" ), AbstractHousingDriver::SearchPropertyLoftOrWorkshopOrSurface );
-        ui->cbProperties->addItem( tr( "Tenement" ), AbstractHousingDriver::SearchPropertyTenement );
-        ui->cbProperties->addItem( tr( "Building" ), AbstractHousingDriver::SearchPropertyBuilding );
-        ui->cbProperties->addItem( tr( "Castle" ), AbstractHousingDriver::SearchPropertyCastle );
-        ui->cbProperties->addItem( tr( "Mansion" ), AbstractHousingDriver::SearchPropertyMansion );
-        ui->cbProperties->addItem( tr( "Others" ), AbstractHousingDriver::SearchPropertyOthers );
-        ui->cbProperties->addItem( tr( "All" ), AbstractHousingDriver::SearchPropertyAll );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "None" ), AbstractHousingDriver::SearchPropertyNone );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Apartment" ), AbstractHousingDriver::SearchPropertyApartment );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "House / Villa" ), AbstractHousingDriver::SearchPropertyHouseOrVilla );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Parking / Box" ), AbstractHousingDriver::SearchPropertyParkingOrBox );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Ground" ), AbstractHousingDriver::SearchPropertyGround );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Shop" ), AbstractHousingDriver::SearchPropertyShop );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Commercial Local" ), AbstractHousingDriver::SearchPropertyCommercialLocal );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Offices" ), AbstractHousingDriver::SearchPropertyOffices );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Loft / Workshop / Surface" ), AbstractHousingDriver::SearchPropertyLoftOrWorkshopOrSurface );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Tenement" ), AbstractHousingDriver::SearchPropertyTenement );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Building" ), AbstractHousingDriver::SearchPropertyBuilding );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Castle" ), AbstractHousingDriver::SearchPropertyCastle );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Mansion" ), AbstractHousingDriver::SearchPropertyMansion );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "Others" ), AbstractHousingDriver::SearchPropertyOthers );
+        ui->cbProperties->addItem( InputSearchWidget::tr( "All" ), AbstractHousingDriver::SearchPropertyAll );
         
         // TODO: replace with a Fresh pCheckComboBox when possible
-        ui->cbSorting->addItem( tr( "None" ), AbstractHousingDriver::SearchSortingNone );
-        ui->cbSorting->addItem( tr( "Ascending date" ), AbstractHousingDriver::SearchSortingAscendingDate );
-        ui->cbSorting->addItem( tr( "Descending date" ), AbstractHousingDriver::SearchSortingDescendingDate );
-        ui->cbSorting->addItem( tr( "Ascending price" ), AbstractHousingDriver::SearchSortingAscendingPrice );
-        ui->cbSorting->addItem( tr( "Descending price" ), AbstractHousingDriver::SearchSortingDescendingPrice );
-        ui->cbSorting->addItem( tr( "Ascending surface" ), AbstractHousingDriver::SearchSortingAscendingSurface );
-        ui->cbSorting->addItem( tr( "Descending surface" ), AbstractHousingDriver::SearchSortingDescendingSurface );
+        ui->cbSorting->addItem( InputSearchWidget::tr( "None" ), AbstractHousingDriver::SearchSortingNone );
+        ui->cbSorting->addItem( InputSearchWidget::tr( "Ascending date" ), AbstractHousingDriver::SearchSortingAscendingDate );
+        ui->cbSorting->addItem( InputSearchWidget::tr( "Descending date" ), AbstractHousingDriver::SearchSortingDescendingDate );
+        ui->cbSorting->addItem( InputSearchWidget::tr( "Ascending price" ), AbstractHousingDriver::SearchSortingAscendingPrice );
+        ui->cbSorting->addItem( InputSearchWidget::tr( "Descending price" ), AbstractHousingDriver::SearchSortingDescendingPrice );
+        ui->cbSorting->addItem( InputSearchWidget::tr( "Ascending surface" ), AbstractHousingDriver::SearchSortingAscendingSurface );
+        ui->cbSorting->addItem( InputSearchWidget::tr( "Descending surface" ), AbstractHousingDriver::SearchSortingDescendingSurface );
         
         // TODO: replace with a Fresh pCheckComboBox when possible
-        ui->cbFeatures->addItem( tr( "None" ), AbstractHousingDriver::SearchFeatureNone );
-        ui->cbFeatures->addItem( tr( "Elevator" ), AbstractHousingDriver::SearchFeatureElevator );
-        ui->cbFeatures->addItem( tr( "Digicode" ), AbstractHousingDriver::SearchFeatureDigicode );
-        ui->cbFeatures->addItem( tr( "Intercom" ), AbstractHousingDriver::SearchFeatureIntercom );
-        ui->cbFeatures->addItem( tr( "Caretaker" ), AbstractHousingDriver::SearchFeatureCaretaker );
-        ui->cbFeatures->addItem( tr( "Pool" ), AbstractHousingDriver::SearchFeaturePool );
-        ui->cbFeatures->addItem( tr( "Terrace" ), AbstractHousingDriver::SearchFeatureTerrace );
-        ui->cbFeatures->addItem( tr( "Balcony" ), AbstractHousingDriver::SearchFeatureBalcony );
-        ui->cbFeatures->addItem( tr( "Parking" ), AbstractHousingDriver::SearchFeatureParking );
-        ui->cbFeatures->addItem( tr( "Box" ), AbstractHousingDriver::SearchFeatureBox );
-        ui->cbFeatures->addItem( tr( "Cellar" ), AbstractHousingDriver::SearchFeatureCellar );
-        ui->cbFeatures->addItem( tr( "All" ), AbstractHousingDriver::SearchFeatureAll );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "None" ), AbstractHousingDriver::SearchFeatureNone );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Elevator" ), AbstractHousingDriver::SearchFeatureElevator );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Digicode" ), AbstractHousingDriver::SearchFeatureDigicode );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Intercom" ), AbstractHousingDriver::SearchFeatureIntercom );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Caretaker" ), AbstractHousingDriver::SearchFeatureCaretaker );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Pool" ), AbstractHousingDriver::SearchFeaturePool );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Terrace" ), AbstractHousingDriver::SearchFeatureTerrace );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Balcony" ), AbstractHousingDriver::SearchFeatureBalcony );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Parking" ), AbstractHousingDriver::SearchFeatureParking );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Box" ), AbstractHousingDriver::SearchFeatureBox );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "Cellar" ), AbstractHousingDriver::SearchFeatureCellar );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "All" ), AbstractHousingDriver::SearchFeatureAll );
         
         foreach ( AbstractHousingDriver* driver, AbstractHousingDriver::registeredDrivers() ) {
             ui->cbDrivers->addItem( driver->name(), *driver );

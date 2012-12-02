@@ -17,6 +17,8 @@ namespace Housing
     
     bool readJsonFile( QVariant& variant, const QString& name );
     bool writeJsonFile( const QVariant& variant, const QString& name );
+    
+    QString googleMapGPSUrl( const double& latitude, const double& longitude, char viewType = 'h', int zoom = 15 );
 };
 
 #endif // HOUSING_H

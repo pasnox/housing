@@ -29,7 +29,7 @@ public:
         comboBox->setEditable( true );
         comboBox->setModel( model );
         comboBox->setModelColumn( 0 );
-        comboBox->lineEdit()->setPlaceholderText( tr( "Type a city name / zip code..." ) );
+        comboBox->lineEdit()->setPlaceholderText( CityComboBox::tr( "Type a city name / zip code..." ) );
         timer->setInterval( 500 );
         timer->setSingleShot( true );
         

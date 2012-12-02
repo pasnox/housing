@@ -304,8 +304,12 @@
    </attribute>
    <addaction name="aSwitchAnnouncementIgnoreState"/>
    <addaction name="aSwitchAnnouncementBookmarkState"/>
+   <addaction name="separator"/>
    <addaction name="aOpenAnnouncementInNewTab"/>
    <addaction name="aOpenAnnouncementInDefaultBrowser"/>
+   <addaction name="separator"/>
+   <addaction name="aGeotagAnnouncementInNewTab"/>
+   <addaction name="aGeotagAnnouncementInDefaultBrowser"/>
   </widget>
   <action name="aSwitchAnnouncementIgnoreState">
    <property name="checkable">
@@ -351,6 +355,22 @@
    </property>
    <property name="text">
     <string>Open the announcement in the default browser</string>
+   </property>
+  </action>
+  <action name="aGeotagAnnouncementInNewTab">
+   <property name="icon">
+    <iconset theme="folder-remote"/>
+   </property>
+   <property name="text">
+    <string>Geotag the announcement in a new tab</string>
+   </property>
+  </action>
+  <action name="aGeotagAnnouncementInDefaultBrowser">
+   <property name="icon">
+    <iconset theme="applications-internet"/>
+   </property>
+   <property name="text">
+    <string>Geotag the announcement in the default browser</string>
    </property>
   </action>
  </widget>

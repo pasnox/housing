@@ -3,6 +3,7 @@
 #include "interface/AnnouncementModel.h"
 #include "interface/AnnouncementProxyModel.h"
 #include "NetworkManager.h"
+#include "Housing.h"
 
 #include <QEvent>
 #include <QNetworkReply>
@@ -44,17 +45,17 @@ public:
         
         ui->setupUi( widget );
         ui->lvAnnouncements->setModel( proxy );
-        ui->lvAnnouncements->addActions( ui->tbActions->actions() );
         ui->dwInputSearch->toggleViewAction()->setIcon( ui->twPages->tabIcon( 0 ) );
         ui->tbActions->addSeparator();
         ui->tbActions->addAction( proxy->filterAction() );
         ui->tbActions->addSeparator();
         ui->tbActions->addAction( ui->dwInputSearch->toggleViewAction() );
+        ui->lvAnnouncements->addActions( ui->tbActions->actions() );
         ui->lLegend->setText(
             QString( "<html><head/><body><p><span style=\"text-decoration: line-through; color:#a0a0a0;\">%1</span> | <span style=\"font-weight:600;\">%2</span> | <span style=\"color:#0000ff;\">%3</span></p></body></html>" )
-                .arg( tr( "Ignored" ) )
-                .arg( tr( "Bookmarked" ) )
-                .arg( tr( "Normal" ) )
+                .arg( UIMain::tr( "Ignored" ) )
+                .arg( UIMain::tr( "Bookmarked" ) )
+                .arg( UIMain::tr( "Normal" ) )
         );
         
         connect( NetworkManager::instance(), SIGNAL( finished( QNetworkReply* ) ), this, SLOT( networkRequest_finished( QNetworkReply* ) ) );
@@ -69,6 +70,8 @@ public:
         connect( ui->aSwitchAnnouncementBookmarkState, SIGNAL( triggered( bool ) ), this, SLOT( switchSelectedAnnouncementBookmarkState( bool ) ) );
         connect( ui->aOpenAnnouncementInNewTab, SIGNAL( triggered() ), this, SLOT( openSelectedAnnouncementInNewTab() ) );
         connect( ui->aOpenAnnouncementInDefaultBrowser, SIGNAL( triggered() ), this, SLOT( openSelectedAnnouncementInDefaultBrowser() ) );
+        connect( ui->aGeotagAnnouncementInNewTab, SIGNAL( triggered() ), this, SLOT( geotagSelectedAnnouncementInNewTab() ) );
+        connect( ui->aGeotagAnnouncementInDefaultBrowser, SIGNAL( triggered() ), this, SLOT( geotagSelectedAnnouncementInDefaultBrowser() ) );
         
         lvAnnouncements_selectionChanged();
     }
@@ -198,6 +201,8 @@ public slots:
         ui->aSwitchAnnouncementBookmarkState->setChecked( index.isValid() && ui->iswSearch->isBookmarkedId( id ) );
         ui->aOpenAnnouncementInNewTab->setEnabled( index.isValid() );
         ui->aOpenAnnouncementInDefaultBrowser->setEnabled( index.isValid() );
+        ui->aGeotagAnnouncementInNewTab->setEnabled( index.isValid() );
+        ui->aGeotagAnnouncementInDefaultBrowser->setEnabled( index.isValid() );
     }
     
     void pbSearch_clicked() {
@@ -262,7 +267,7 @@ public slots:
         }
         
         QWebView* view = new QWebView;
-        ui->twPages->addTab( view, tr( "Loading %1..." ).arg( id ) );
+        ui->twPages->addTab( view, UIMain::tr( "Loading %1..." ).arg( id ) );
         connect( view, SIGNAL( loadFinished( bool ) ), this, SLOT( view_loadFinished( bool ) ) );
         view->setUrl( url );
     }
@@ -270,6 +275,30 @@ public slots:
     void openSelectedAnnouncementInDefaultBrowser() {
         const QModelIndex index = selectedSourceIndex();
         const QString url = index.data( AnnouncementModel::UrlRole ).toString();
+        QDesktopServices::openUrl( url );
+    }
+    
+    void geotagSelectedAnnouncementInNewTab() {
+        const QModelIndex index = selectedSourceIndex();
+        const Announcement announcement = index.data( AnnouncementModel::AnnouncementRole ).value<Announcement>();
+        const QString url = Housing::googleMapGPSUrl( announcement.latitudeLocation(), announcement.longitudeLocation() );
+        
+        foreach ( QWebView* view, ui->twPages->findChildren<QWebView*>() ) {
+            if ( view->url() == url ) {
+                return;
+            }
+        }
+        
+        QWebView* view = new QWebView;
+        ui->twPages->addTab( view, UIMain::tr( "Geotaging %1..." ).arg( announcement.id() ) );
+        connect( view, SIGNAL( loadFinished( bool ) ), this, SLOT( view_loadFinished( bool ) ) );
+        view->setUrl( url );
+    }
+    
+    void geotagSelectedAnnouncementInDefaultBrowser() {
+        const QModelIndex index = selectedSourceIndex();
+        const Announcement announcement = index.data( AnnouncementModel::AnnouncementRole ).value<Announcement>();
+        const QString url = Housing::googleMapGPSUrl( announcement.latitudeLocation(), announcement.longitudeLocation() );
         QDesktopServices::openUrl( url );
     }
 };

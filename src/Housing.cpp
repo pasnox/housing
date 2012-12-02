@@ -89,3 +89,19 @@ bool Housing::writeJsonFile( const QVariant& variant, const QString& name )
     
     return ok;
 }
+
+QString Housing::googleMapGPSUrl( const double& latitude, const double& longitude, char viewType, int zoom )
+{
+    /*
+        Type:
+            h = ground
+            m = map
+    */
+    
+    return QString( "https://maps.google.com/?t=%1&z=%2&saddr=%3,%4&daddr=" )
+        .arg( viewType )
+        .arg( zoom )
+        .arg( latitude )
+        .arg( longitude )
+    ;
+}
