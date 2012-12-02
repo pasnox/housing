@@ -301,6 +301,7 @@ void UIMain::showEvent( QShowEvent* event )
     
     restoreGeometry( settings.value( "MainWindow/Geometry" ).toByteArray() );
     restoreState( settings.value( "MainWindow/State" ).toByteArray() );
+    d->proxy->filterAction()->setChecked( settings.value( "MainWindow/FilterIgnored" ).toBool() );
     d->ui->iswSearch->setCurrentDriverName( settings.value( "MainWindow/CurrentDriverName" ).toString() );
     d->ui->iswSearch->loadRequestProperties();
 }
@@ -312,6 +313,7 @@ void UIMain::closeEvent( QCloseEvent* event )
     
     settings.setValue( "MainWindow/Geometry", saveGeometry() );
     settings.setValue( "MainWindow/State", saveState() );
+    settings.setValue( "MainWindow/FilterIgnored", d->proxy->filterAction()->isChecked() );
     settings.setValue( "MainWindow/CurrentDriverName", driver ? driver->name() : QString::null );
     d->ui->iswSearch->saveRequestProperties();
     
