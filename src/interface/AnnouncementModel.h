@@ -14,6 +14,7 @@ class AnnouncementModel : public QAbstractTableModel
 public:
     enum CustomRoles {
         IdRole = Qt::UserRole,
+        ThumbnailRole,
         IgnoredRole,
         BookmarkedRole,
         UrlRole,
@@ -30,7 +31,6 @@ public:
     virtual int rowCount( const QModelIndex& parent = QModelIndex() ) const;
     virtual QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const;
     virtual QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
-    virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );
     virtual bool canFetchMore( const QModelIndex& parent ) const;
     virtual void fetchMore( const QModelIndex& parent );
     

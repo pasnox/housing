@@ -4,7 +4,7 @@
 #include <QFont>
 #include <QDebug>
 
-#define AnnouncementModelColumnCount 5
+#define AnnouncementModelColumnCount 7
 
 class AnnouncementModelPrivate {
 public:
@@ -54,19 +54,7 @@ QVariant AnnouncementModel::data( const QModelIndex& index, int role ) const
         switch ( role ) {
 			case Qt::DecorationRole: {
 				if ( index.column() == 0 ) {
-					const QString key = announcement.thumbnailInformations();
-					QPixmap pixmap;
-					
-					if ( QPixmapCache::find( key, &pixmap ) ) {
-						return pixmap;
-					}
-					else {
-						if ( !key.isEmpty() ) {
-							emit const_cast<AnnouncementModel*>( this ) ->requestImageDownload( key );
-						}
-					}
-					
-					return d->emptyPixmap;
+					return data( index, AnnouncementModel::ThumbnailRole );
 				}
 				
 				break;
@@ -74,16 +62,22 @@ QVariant AnnouncementModel::data( const QModelIndex& index, int role ) const
 			
             case Qt::DisplayRole:
             case Qt::EditRole: {
-                switch ( index.column()  ) {
-                    case 1:
-                        return announcement.cityLocation();
-                    case 2:
-                        return announcement.zipLocation();
+				switch ( index.column() ) {
+					case 0:
+						return announcement.cityLocation();
+					case 1:
+						return announcement.zipLocation();
+					case 2:
+						return announcement.pricePricing();
 					case 3:
-                        return announcement.pricePricing();
+						return announcement.roomsNumbers();
 					case 4:
-                        return announcement.titleInformations();
-                }
+						return announcement.bedroomsNumbers();
+					case 5:
+						return announcement.houseSurfaceDetails();
+					case 6:
+						return 0;//announcement.groundSurfaceDetails();
+				}
                 
                 break;
             }
@@ -136,6 +130,22 @@ QVariant AnnouncementModel::data( const QModelIndex& index, int role ) const
 				return announcement.id();
 			}
 			
+			case AnnouncementModel::ThumbnailRole: {
+				const QString key = announcement.thumbnailInformations();
+				QPixmap pixmap;
+				
+				if ( QPixmapCache::find( key, &pixmap ) ) {
+					return pixmap;
+				}
+				else {
+					if ( !key.isEmpty() ) {
+						emit const_cast<AnnouncementModel*>( this )->requestImageDownload( key );
+					}
+				}
+				
+				return d->emptyPixmap;
+			}
+			
 			case AnnouncementModel::UrlRole: {
 				return announcement.url();
 			}
@@ -162,24 +172,23 @@ QVariant AnnouncementModel::headerData( int section, Qt::Orientation orientation
     if ( orientation == Qt::Horizontal && role == Qt::DisplayRole && section >= 0 && section < columnCount() ) {
         switch ( section ) {
             case 0:
-                return tr( "Thumbnail" );
-            case 1:
                 return tr( "City" );
-            case 2:
+            case 1:
                 return tr( "Zip" );
-            case 3:
+            case 2:
                 return tr( "Price" );
+			case 3:
+                return tr( "Rooms" );
 			case 4:
-                return tr( "Title" );
+                return tr( "Bedrooms" );
+			case 5:
+                return tr( "Surface" );
+			case 6:
+                return tr( "Ground" );
         }
     }
     
     return QAbstractTableModel::headerData( section, orientation, role );
-}
-
-void AnnouncementModel::sort( int column, Qt::SortOrder order )
-{
-	qWarning( "%s: sort", Q_FUNC_INFO );
 }
 
 bool AnnouncementModel::canFetchMore( const QModelIndex& parent ) const
