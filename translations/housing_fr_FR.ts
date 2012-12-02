@@ -4,29 +4,47 @@
 <context>
     <name>AnnouncementModel</name>
     <message>
-        <location filename="../src/interface/AnnouncementModel.cpp" line="161"/>
-        <source>Thumbnail</source>
-        <translation>Miniature</translation>
-    </message>
-    <message>
-        <location filename="../src/interface/AnnouncementModel.cpp" line="163"/>
+        <location filename="../src/interface/AnnouncementModel.cpp" line="175"/>
         <source>City</source>
         <translation>Ville</translation>
     </message>
     <message>
-        <location filename="../src/interface/AnnouncementModel.cpp" line="165"/>
+        <location filename="../src/interface/AnnouncementModel.cpp" line="177"/>
         <source>Zip</source>
         <translation>Code postal</translation>
     </message>
     <message>
-        <location filename="../src/interface/AnnouncementModel.cpp" line="167"/>
+        <location filename="../src/interface/AnnouncementModel.cpp" line="179"/>
         <source>Price</source>
         <translation>Prix</translation>
     </message>
     <message>
-        <location filename="../src/interface/AnnouncementModel.cpp" line="169"/>
-        <source>Title</source>
-        <translation>Titre</translation>
+        <location filename="../src/interface/AnnouncementModel.cpp" line="181"/>
+        <source>Rooms</source>
+        <translation>Piéces</translation>
+    </message>
+    <message>
+        <location filename="../src/interface/AnnouncementModel.cpp" line="183"/>
+        <source>Bedrooms</source>
+        <translation>Chambres</translation>
+    </message>
+    <message>
+        <location filename="../src/interface/AnnouncementModel.cpp" line="185"/>
+        <source>Surface</source>
+        <translation>Surface</translation>
+    </message>
+    <message>
+        <location filename="../src/interface/AnnouncementModel.cpp" line="187"/>
+        <source>Ground</source>
+        <translation>Terrain</translation>
+    </message>
+</context>
+<context>
+    <name>AnnouncementProxyModel</name>
+    <message>
+        <location filename="../src/interface/AnnouncementProxyModel.cpp" line="24"/>
+        <source>Show/Hide ignored announcements</source>
+        <translation>Afficher/Cacher les annonces ignorées</translation>
     </message>
 </context>
 <context>
@@ -90,17 +108,14 @@
 <context>
     <name>CityComboBox</name>
     <message>
-        <location filename="../src/widgets/CityComboBox.cpp" line="43"/>
-        <source>No AbstractCityQuery setted.</source>
-        <translation>Pas d&apos;objet de recherche définit.</translation>
-    </message>
-</context>
-<context>
-    <name>CityComboBoxPrivate</name>
-    <message>
         <location filename="../src/widgets/CityComboBox.cpp" line="32"/>
         <source>Type a city name / zip code...</source>
         <translation>Ecrivez le nom d&apos;une ville / un code postal...</translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/CityComboBox.cpp" line="43"/>
+        <source>No AbstractCityQuery setted.</source>
+        <translation>Pas d&apos;objet de recherche définit.</translation>
     </message>
 </context>
 <context>
@@ -222,6 +237,7 @@
     </message>
     <message>
         <location filename="../src/widgets/InputSearchWidget.ui" line="228"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="30"/>
         <source>Ground</source>
         <translation>Terrain</translation>
     </message>
@@ -235,9 +251,6 @@
         <source>Features</source>
         <translation>Avancés</translation>
     </message>
-</context>
-<context>
-    <name>InputSearchWidgetPrivate</name>
     <message>
         <location filename="../src/widgets/InputSearchWidget.cpp" line="26"/>
         <location filename="../src/widgets/InputSearchWidget.cpp" line="43"/>
@@ -259,11 +272,6 @@
         <location filename="../src/widgets/InputSearchWidget.cpp" line="29"/>
         <source>Parking / Box</source>
         <translation>Parking / Box</translation>
-    </message>
-    <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="30"/>
-        <source>Ground</source>
-        <translation>Terrain</translation>
     </message>
     <message>
         <location filename="../src/widgets/InputSearchWidget.cpp" line="31"/>
@@ -398,9 +406,9 @@
     </message>
 </context>
 <context>
-    <name>NetworkManagerPrivate</name>
+    <name>NetworkManager</name>
     <message>
-        <location filename="../src/NetworkManager.cpp" line="58"/>
+        <location filename="../src/NetworkManager.cpp" line="60"/>
         <source>Invalid content received.</source>
         <translation>Contenu invalide recu.</translation>
     </message>
@@ -429,8 +437,24 @@
 <context>
     <name>SeLogerHousingDriver</name>
     <message>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="25"/>
         <source>All</source>
-        <translation type="obsolete">Tout</translation>
+        <translation>Tout</translation>
+    </message>
+    <message>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="359"/>
+        <source>%s: Can&apos;t set focus</source>
+        <translation>%s: Impossible de définir le centre</translation>
+    </message>
+    <message>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="370"/>
+        <source>%s: Invalid query</source>
+        <translation>%s: Requête invalide</translation>
+    </message>
+    <message>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="379"/>
+        <source>%s: Can&apos;t evaluateTo</source>
+        <translation>%s: Impossible d&apos;évaluer</translation>
     </message>
 </context>
 <context>
@@ -441,67 +465,94 @@
         <translation>Résultats de recherche</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="116"/>
+        <location filename="../src/UIMain.ui" line="109"/>
+        <source>Total pages:</source>
+        <translation>Page totales:</translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.ui" line="136"/>
+        <source>Found:</source>
+        <translation>Trouvées:</translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.ui" line="163"/>
+        <source>Visible:</source>
+        <translation>Visibles:</translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.ui" line="190"/>
+        <source>Announcements:</source>
+        <translation>Annonces:</translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.ui" line="226"/>
         <source>Search Criteria</source>
         <translation>Critéres de recherche</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="161"/>
+        <location filename="../src/UIMain.ui" line="271"/>
         <source>Search</source>
         <translation>Rechercher</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="176"/>
+        <location filename="../src/UIMain.ui" line="291"/>
         <source>Tools bar</source>
         <translation>Barre d&apos;outils</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="205"/>
+        <location filename="../src/UIMain.ui" line="324"/>
         <source>Switch the ignore state of  the announcement</source>
         <translation>Changer l&apos;état ignoré de l&apos;annonce</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="218"/>
+        <location filename="../src/UIMain.ui" line="337"/>
         <source>Switch the bookmark state of the announcement</source>
         <translation>Changer l&apos;état favori de l&apos;annonce</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="228"/>
+        <location filename="../src/UIMain.ui" line="347"/>
         <source>Open the announcement in a new tab</source>
         <translation>Ouvrir l&apos;annonce dans un nouvel onglet</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.ui" line="238"/>
+        <location filename="../src/UIMain.ui" line="357"/>
         <source>Open the announcement in the default browser</source>
         <translation>Ouvrir l&apos;annonce dans le navigateur par défaut</translation>
     </message>
-</context>
-<context>
-    <name>UIMainPrivate</name>
     <message>
-        <location filename="../src/UIMain.cpp" line="40"/>
+        <location filename="../src/UIMain.ui" line="365"/>
+        <source>Geotag the announcement in a new tab</source>
+        <translation>Géolocaliser l&apos;annonce dans un nouvel onglet</translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.ui" line="373"/>
+        <source>Geotag the announcement in the default browser</source>
+        <translation>Géolocaliser l&apos;annonce dans le navigateur par défaut</translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.cpp" line="56"/>
         <source>Ignored</source>
         <translation>Ignoré</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.cpp" line="41"/>
+        <location filename="../src/UIMain.cpp" line="57"/>
         <source>Bookmarked</source>
         <translation>Favori</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.cpp" line="42"/>
+        <location filename="../src/UIMain.cpp" line="58"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../src/UIMain.cpp" line="79"/>
-        <source>Announcements: %1</source>
-        <translation>Annonces: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.cpp" line="207"/>
+        <location filename="../src/UIMain.cpp" line="270"/>
         <source>Loading %1...</source>
         <translation>Chargement de %1...</translation>
+    </message>
+    <message>
+        <location filename="../src/UIMain.cpp" line="293"/>
+        <source>Geotaging %1...</source>
+        <translation>Géolocalisation de%1...</translation>
     </message>
 </context>
 </TS>
