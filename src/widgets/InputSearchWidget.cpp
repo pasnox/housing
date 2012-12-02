@@ -25,7 +25,7 @@
 ****************************************************************************/
 #include "InputSearchWidget.h"
 #include "ui_InputSearchWidget.h"
-#include "Housing.h"
+#include "objects/Housing.h"
 
 #include <QEvent>
 #include <QDebug>

@@ -24,8 +24,8 @@
 **
 ****************************************************************************/
 #include "SeLogerCityQuery.h"
-#include "NetworkManager.h"
-#include "Housing.h"
+#include "objects/NetworkManager.h"
+#include "objects/Housing.h"
 
 #include <QUrl>
 #include <QNetworkRequest>

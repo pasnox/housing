@@ -30,6 +30,7 @@ INCLUDEPATH *= .
 DEPENDPATH *= . \
     interface \
     seloger \
+    objects \    
     widgets
 
 CONFIG(debug, debug|release) {
@@ -60,49 +61,53 @@ include( 3rdparty/qjson.pri )
 
 RESOURCES *= ../resources/housing.qrc
 
-TRANSLATIONS *= ../translations/housing_fr_FR.ts \
+TRANSLATIONS *= \
+    ../translations/housing_fr_FR.ts \
     ../translations/housing_en_US.ts
 
-FORMS *= UIMain.ui \
+FORMS *= \
     widgets/CitySearchWidget.ui \
     widgets/InputSearchWidget.ui \
-    widgets/AnnouncementWidget.ui
+    widgets/AnnouncementWidget.ui \
+    UIMain.ui
 
-HEADERS *= NetworkManager.h \
+HEADERS *= \
+    objects/NetworkManager.h \
+    objects/Housing.h \
     interface/City.h \
     interface/CityModel.h \
-    interface/AbstractCityQuery.h \
-    seloger/SeLogerCityQuery.h \
-    UIMain.h \
-    widgets/CityComboBox.h \
-    Housing.h \
-    widgets/CitySearchWidget.h \
-    interface/AbstractHousingDriver.h \
-    seloger/SeLogerHousingDriver.h \
-    interface/AnnouncementModel.h \
     interface/Announcement.h \
+    interface/AnnouncementModel.h \
+    interface/AnnouncementProxyModel.h \
+    interface/AnnouncementItemDelegate.h \
+    interface/AbstractCityQuery.h \
+    interface/AbstractHousingDriver.h \
+    seloger/SeLogerCityQuery.h \
+    seloger/SeLogerHousingDriver.h \
+    widgets/CityComboBox.h \
+    widgets/CitySearchWidget.h \
     widgets/InputSearchWidget.h \
     widgets/AnnouncementWidget.h \
-    interface/AnnouncementItemDelegate.h \
     widgets/AnnouncementView.h \
-    interface/AnnouncementProxyModel.h
-
-SOURCES *= main.cpp \
-    NetworkManager.cpp \
+    UIMain.h \
+    
+SOURCES *= \
+    objects/NetworkManager.cpp \
+    objects/Housing.cpp \
     interface/City.cpp \
     interface/CityModel.cpp \
-    interface/AbstractCityQuery.cpp \
-    seloger/SeLogerCityQuery.cpp \
-    UIMain.cpp \
-    widgets/CityComboBox.cpp \
-    Housing.cpp \
-    widgets/CitySearchWidget.cpp \
-    interface/AbstractHousingDriver.cpp \
-    seloger/SeLogerHousingDriver.cpp \
-    interface/AnnouncementModel.cpp \
     interface/Announcement.cpp \
+    interface/AnnouncementModel.cpp \
+    interface/AnnouncementProxyModel.cpp \
+    interface/AnnouncementItemDelegate.cpp \
+    interface/AbstractCityQuery.cpp \
+    interface/AbstractHousingDriver.cpp \
+    seloger/SeLogerCityQuery.cpp \
+    seloger/SeLogerHousingDriver.cpp \
+    widgets/CityComboBox.cpp \
+    widgets/CitySearchWidget.cpp \
     widgets/InputSearchWidget.cpp \
     widgets/AnnouncementWidget.cpp \
-    interface/AnnouncementItemDelegate.cpp \
     widgets/AnnouncementView.cpp \
-    interface/AnnouncementProxyModel.cpp
+    UIMain.cpp \
+    main.cpp

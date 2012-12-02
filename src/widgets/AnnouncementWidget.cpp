@@ -42,6 +42,7 @@ AnnouncementWidget::~AnnouncementWidget()
 
 void AnnouncementWidget::setAnnouncement( const Announcement& announcement )
 {
+    Q_UNUSED( announcement );
 }
 
 void AnnouncementWidget::retranslateUi()

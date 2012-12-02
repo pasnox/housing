@@ -27,8 +27,8 @@
 #include "ui_UIMain.h"
 #include "interface/AnnouncementModel.h"
 #include "interface/AnnouncementProxyModel.h"
-#include "NetworkManager.h"
-#include "Housing.h"
+#include "objects/NetworkManager.h"
+#include "objects/Housing.h"
 
 #include <QEvent>
 #include <QNetworkReply>
