@@ -4,9 +4,20 @@ SeLoger.com API:
 WebService:
 ===========
 
-Nb total d'annonce: http://ws.seloger.com/nbAnnoncesTotal.xml
+Base url: http://ws.seloger.com
 
-Base url: http://ws.seloger.com/search.xml?
+Nb total d'annonce: BaseUrl/nbAnnoncesTotal.xml
+-------------------
+
+Details annonce: BaseUrl/nnonceDetail.xml?
+----------------
+
+Id de l'annonce (idAnnonce): numerique (idAnnonce=66972645)
+
+Audiotel (noAudiotel): numerique 0 ou 1 (noAudiotel=1)
+
+Requete de recherche: BaseUrl/search.xml?
+---------------------
 
 Page de recherche (SEARCHpg): numerique (SEARCHpg=2)
 
