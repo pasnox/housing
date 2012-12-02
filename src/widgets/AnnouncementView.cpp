@@ -2,8 +2,7 @@
 #include "interface/AnnouncementItemDelegate.h"
 
 #include <QHeaderView>
-
-#define AnnouncementViewPrivateHeaderHeight 21
+#include <QDebug>
 
 class AnnouncementViewPrivate : public QObject {
     Q_OBJECT
@@ -11,12 +10,14 @@ class AnnouncementViewPrivate : public QObject {
 public:
     AnnouncementView* widget;
     QHeaderView* header;
+	int headerHeight;
     
 public:
     AnnouncementViewPrivate( AnnouncementView* _widget )
         : QObject( _widget ),
             widget( _widget ),
-            header( new QHeaderView( Qt::Horizontal, _widget ) )
+            header( new QHeaderView( Qt::Horizontal, _widget ) ),
+			headerHeight( -1 )
     {
         header->setResizeMode( QHeaderView::ResizeToContents );
         header->setClickable( true );
@@ -39,7 +40,6 @@ AnnouncementView::AnnouncementView( QWidget* parent )
     : QListView( parent ),
         d( new AnnouncementViewPrivate( this ) )
 {
-    setViewportMargins( 0, AnnouncementViewPrivateHeaderHeight, 0, 0 );
     setItemDelegate( new AnnouncementItemDelegate( this ) );
 }
 
@@ -67,6 +67,7 @@ void AnnouncementView::setModel( QAbstractItemModel* model )
     oldSelectionModel = d->header->selectionModel();
     d->header->setModel( model );
     d->header->setSelectionModel( selectionModel() );
+	d->headerHeight = d->header->sizeHint().height();
     
     if ( hasModel ) {
         oldSelectionModel->deleteLater();
@@ -77,7 +78,8 @@ void AnnouncementView::resizeEvent( QResizeEvent* event )
 {
 	QListView::resizeEvent( event );
 	
-	QRect rect = QRect( QPoint( frameWidth(), frameWidth() ), QSize( viewport()->width(), AnnouncementViewPrivateHeaderHeight ) );
+	const QRect rect = QRect( QPoint( frameWidth(), frameWidth() ), QSize( viewport()->width(), d->headerHeight == -1 ? 21 : d->headerHeight ) );
+	setViewportMargins( 0, rect.height(), 0, 0 );
 	d->header->setGeometry( rect );
 }
 
