@@ -1,7 +1,60 @@
-housing
+Housing
 =======
 
-An application to search for rent / purchase of appartment / house.<br />
-It's based on abstract interface which make it possible to extends using static / shared plugins.<br />
-Currently only French SeLoger.com api driver is implemented.<br />
+An application to search for rent / purchase of appartment / house.
+It's based on abstract interface which make it possible to extends using static / shared plugins.
+Currently only French SeLoger.com api driver is implemented.
 Others welcomed, make Housing the best housing tool on the world!
+
+I'm currently looking for Mac OS X / Unix / Linux / Windows packagers and translators.
+Feel free to contact me.
+
+Homepage
+========
+
+https://github.com/pasnox/housing
+
+License
+=======
+
+GPL, see http://www.gnu.org/licenses/gpl.html
+
+Dependencies
+============
+
+- GNU gcc/g++ / MinGW / MSVC / XCode
+- Qt 4.8.x framework with its developement tools (qmake etc)
+
+Get the sources from Git
+========================
+
+git clone https://github.com/pasnox/housing.git
+
+Update your git working copy (after having clone the repository)
+================================================================
+
+git pull
+
+Building from sources in a terminal
+===================================
+
+Unix / Linux / Mac OS X
+=======================
+
+./init-repositories.sh
+qmake -r housing.pro
+make -j 4
+
+Windows
+=======
+
+init-repositories.bat
+qmake -r housing.pro
+make -j 4
+
+NOTE
+====
+
+- You have to be sure Qt development tools are in your PATH
+- On some platforms replace qmake by qmake-qt4
+- On some platforms replace make by nmake or whatever is your make tool
