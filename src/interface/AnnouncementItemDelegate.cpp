@@ -45,6 +45,13 @@ AnnouncementItemDelegate::~AnnouncementItemDelegate()
     delete d;
 }
 
+QString AnnouncementItemDelegate::displayText( const QVariant& value, const QLocale& locale ) const
+{
+    Q_UNUSED( value );
+    Q_UNUSED( locale );
+    return QString::null;
+}
+
 void AnnouncementItemDelegate::paint( QPainter* painter, const QStyleOptionViewItem& _option, const QModelIndex& index ) const
 {
     const bool ignored = index.data( AnnouncementModel::IgnoredRole ).toBool();
@@ -52,6 +59,10 @@ void AnnouncementItemDelegate::paint( QPainter* painter, const QStyleOptionViewI
     QStyleOptionViewItemV4 option = *qstyleoption_cast<const QStyleOptionViewItemV4*>( &_option );
     
     option.font.setPointSize( option.font.pointSize() -1 );
+    
+    if ( option.state & QStyle::State_HasFocus ) {
+        option.state ^= QStyle::State_HasFocus;
+    }
     
     if ( ignored ) {
         if ( option.state & QStyle::State_Selected ) {
@@ -107,5 +118,6 @@ void AnnouncementItemDelegate::paint( QPainter* painter, const QStyleOptionViewI
 QSize AnnouncementItemDelegate::sizeHint( const QStyleOptionViewItem& option, const QModelIndex& index ) const
 {
     Q_UNUSED( option );
-    return QSize( d->view->viewport()->width(), index.data( Qt::DecorationRole ).value<QPixmap>().height() +( d->margin *2 ) );
+    Q_UNUSED( index );
+    return QSize( d->view->viewport()->width(), d->view->iconSize().height() +( d->margin *2 ) );
 }

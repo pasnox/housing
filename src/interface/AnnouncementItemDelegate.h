@@ -14,6 +14,7 @@ public:
     AnnouncementItemDelegate( QAbstractItemView* parent );
     virtual ~AnnouncementItemDelegate();
     
+    virtual QString displayText( const QVariant& value, const QLocale& locale ) const;
     virtual void paint( QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index ) const;
     virtual QSize sizeHint( const QStyleOptionViewItem& option, const QModelIndex& index ) const;
 
