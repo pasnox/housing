@@ -42,11 +42,10 @@ public:
 
 public:
 	AnnouncementModelPrivate()
-		: emptyPixmap( QPixmap( 100, 100 ) ),
+		: emptyPixmap( QPixmap( ":/picture-not-available.png" ) ),
 			canFetch( false ),
 			page( -1 )
 	{
-        emptyPixmap.fill( Qt::transparent );
 	}
 };
 
