@@ -29,6 +29,7 @@
 #include "interface/CityModel.h"
 
 #include <QEvent>
+#include <QMessageBox>
 #include <QDebug>
 
 class CitySearchWidgetPrivate : public QObject {
@@ -81,6 +82,15 @@ private slots:
     }
     
     void clearCities() {
+        const QString title = QString::null;
+        const QString message = CitySearchWidget::tr( "Are you sure you want to clear the list ?" );
+        const QMessageBox::StandardButtons buttons = QMessageBox::Yes | QMessageBox::No;
+        const QMessageBox::StandardButton defaultButton = QMessageBox::No;
+        
+        if ( QMessageBox::question( widget->window(), title, message, buttons, defaultButton ) == defaultButton ) {
+            return;
+        }
+        
         model->clear();
     }
     
