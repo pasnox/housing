@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>480</height>
+    <width>1024</width>
+    <height>768</height>
    </rect>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -61,12 +61,6 @@
           </property>
           <property name="verticalScrollMode">
            <enum>QAbstractItemView::ScrollPerPixel</enum>
-          </property>
-          <property name="resizeMode">
-           <enum>QListView::Adjust</enum>
-          </property>
-          <property name="uniformItemSizes">
-           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -311,6 +305,33 @@
    <addaction name="aGeotagAnnouncementInNewTab"/>
    <addaction name="aGeotagAnnouncementInDefaultBrowser"/>
   </widget>
+  <widget class="QDockWidget" name="dwFeedback">
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>45</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Feedback</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="FeedbackWidget" name="fwFeedback" native="true"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
   <action name="aSwitchAnnouncementIgnoreState">
    <property name="checkable">
     <bool>true</bool>
@@ -359,7 +380,9 @@
   </action>
   <action name="aGeotagAnnouncementInNewTab">
    <property name="icon">
-    <iconset theme="folder-remote"/>
+    <iconset theme="folder-remote">
+     <normaloff/>
+    </iconset>
    </property>
    <property name="text">
     <string>Geotag the announcement in a new tab</string>
@@ -367,7 +390,9 @@
   </action>
   <action name="aGeotagAnnouncementInDefaultBrowser">
    <property name="icon">
-    <iconset theme="applications-internet"/>
+    <iconset theme="applications-internet">
+     <normaloff/>
+    </iconset>
    </property>
    <property name="text">
     <string>Geotag the announcement in the default browser</string>
@@ -385,6 +410,12 @@
    <class>AnnouncementView</class>
    <extends>QListView</extends>
    <header>widgets/AnnouncementView.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FeedbackWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/FeedbackWidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

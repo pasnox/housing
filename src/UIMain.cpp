@@ -71,10 +71,13 @@ public:
         ui->setupUi( widget );
         ui->lvAnnouncements->setModel( proxy );
         ui->dwInputSearch->toggleViewAction()->setIcon( ui->twPages->tabIcon( 0 ) );
+        ui->dwFeedback->toggleViewAction()->setIcon( QIcon::fromTheme( "help-feedback" ) );
+        ui->dwFeedback->toggleViewAction()->setChecked( false );
         ui->tbActions->addSeparator();
         ui->tbActions->addAction( proxy->filterAction() );
         ui->tbActions->addSeparator();
         ui->tbActions->addAction( ui->dwInputSearch->toggleViewAction() );
+        ui->tbActions->addAction( ui->dwFeedback->toggleViewAction() );
         ui->lvAnnouncements->addActions( ui->tbActions->actions() );
         ui->lLegend->setText(
             QString( "<html><head/><body><p><span style=\"text-decoration: line-through; color:#a0a0a0;\">%1</span> | <span style=\"font-weight:600;\">%2</span> | <span style=\"color:#0000ff;\">%3</span></p></body></html>" )

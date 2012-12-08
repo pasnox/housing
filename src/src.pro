@@ -30,7 +30,7 @@ INCLUDEPATH *= .
 DEPENDPATH *= . \
     interface \
     seloger \
-    objects \    
+    objects \
     widgets
 
 CONFIG(debug, debug|release) {
@@ -65,13 +65,16 @@ TRANSLATIONS *= \
     ../translations/housing_fr_FR.ts \
     ../translations/housing_en_US.ts
 
-FORMS *= \
+FORMS *=  \
+    UIMain.ui \
     widgets/CitySearchWidget.ui \
     widgets/InputSearchWidget.ui \
     widgets/AnnouncementWidget.ui \
-    UIMain.ui
+    widgets/FeedbackWidget.ui \
+    widgets/FeedbackDialog.ui
 
-HEADERS *= \
+HEADERS *=  \
+    UIMain.h \
     objects/NetworkManager.h \
     objects/Housing.h \
     interface/City.h \
@@ -82,6 +85,9 @@ HEADERS *= \
     interface/AnnouncementItemDelegate.h \
     interface/AbstractCityQuery.h \
     interface/AbstractHousingDriver.h \
+    interface/Feedback.h \
+    interface/FeedbackModel.h \
+    interface/FeedbackItemDelegate.h \
     seloger/SeLogerCityQuery.h \
     seloger/SeLogerHousingDriver.h \
     widgets/CityComboBox.h \
@@ -89,9 +95,12 @@ HEADERS *= \
     widgets/InputSearchWidget.h \
     widgets/AnnouncementWidget.h \
     widgets/AnnouncementView.h \
-    UIMain.h \
-    
-SOURCES *= \
+    widgets/FeedbackWidget.h \
+    widgets/FeedbackDialog.h
+
+SOURCES *=  \
+    main.cpp \
+    UIMain.cpp \
     objects/NetworkManager.cpp \
     objects/Housing.cpp \
     interface/City.cpp \
@@ -102,6 +111,9 @@ SOURCES *= \
     interface/AnnouncementItemDelegate.cpp \
     interface/AbstractCityQuery.cpp \
     interface/AbstractHousingDriver.cpp \
+    interface/Feedback.cpp \
+    interface/FeedbackModel.cpp \
+    interface/FeedbackItemDelegate.cpp \
     seloger/SeLogerCityQuery.cpp \
     seloger/SeLogerHousingDriver.cpp \
     widgets/CityComboBox.cpp \
@@ -109,5 +121,5 @@ SOURCES *= \
     widgets/InputSearchWidget.cpp \
     widgets/AnnouncementWidget.cpp \
     widgets/AnnouncementView.cpp \
-    UIMain.cpp \
-    main.cpp
+    widgets/FeedbackWidget.cpp \
+    widgets/FeedbackDialog.cpp
