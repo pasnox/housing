@@ -65,7 +65,6 @@ AnnouncementView::AnnouncementView( QWidget* parent )
     : QListView( parent ),
         d( new AnnouncementViewPrivate( this ) )
 {
-    setItemDelegate( new AnnouncementItemDelegate( this ) );
 }
 
 AnnouncementView::~AnnouncementView()
@@ -97,6 +96,9 @@ void AnnouncementView::setModel( QAbstractItemModel* model )
     if ( hasModel ) {
         oldSelectionModel->deleteLater();
     }
+	
+	delete itemDelegate();
+	setItemDelegate( new AnnouncementItemDelegate( this ) );
 }
 
 void AnnouncementView::resizeEvent( QResizeEvent* event )
