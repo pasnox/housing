@@ -42,6 +42,9 @@ public:
     
     QAction* filterAction() const;
 
+public slots:
+    void update();
+
 protected:
     virtual bool filterAcceptsRow( int sourceRow, const QModelIndex & sourceParent ) const;
 

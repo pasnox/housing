@@ -100,6 +100,15 @@ QAction* AnnouncementProxyModel::filterAction() const
     return d->filterAction;
 }
 
+void AnnouncementProxyModel::update()
+{
+	if ( rowCount() == 0 ) {
+		return;
+	}
+	
+	emit dataChanged( index( 0, 0 ), index( rowCount() -1, columnCount() -1 ) );
+}
+
 bool AnnouncementProxyModel::filterAcceptsRow( int sourceRow, const QModelIndex & sourceParent ) const
 {
     if ( d->filterAction->isChecked() ) {
