@@ -38,6 +38,9 @@ namespace Housing
     QVariant fromJson( const QByteArray& json, bool* ok = 0 );
     QByteArray toJson( const QVariant& variant, bool* ok = 0 );
     
+    QVariantHash jsonToClass( const QByteArray& json, const QString& className );
+    QByteArray classToJson( const QVariantHash& data, const QString& className );
+    
     QString settingsFilePath( const QString& extended = QString::null );
     
     bool readJsonFile( QVariant& variant, const QString& name );

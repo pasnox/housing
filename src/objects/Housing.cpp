@@ -55,6 +55,30 @@ QByteArray Housing::toJson( const QVariant& variant, bool* ok )
     return json;
 }
 
+QVariantHash Housing::jsonToClass( const QByteArray& json, const QString& className )
+{
+    bool ok;
+    const QVariant variant = Housing::fromJson( json, &ok );
+    QVariantHash hash;
+    
+    if ( ok && variant.type() == QVariant::Hash ) {
+        const QVariantHash variantHash = variant.toHash();
+        
+        if ( variantHash.value( "className" ).toString().toLower().trimmed() == className.toLower().trimmed() ) {
+            hash = variantHash;
+        }
+    }
+    
+    return hash;
+}
+
+QByteArray Housing::classToJson( const QVariantHash& _data, const QString& className )
+{
+    QVariantHash data = _data;
+    data[ "className" ] = className.trimmed();
+    return Housing::toJson( data );
+}
+
 QString Housing::settingsFilePath( const QString& extended )
 {
     return QDir::toNativeSeparators( QDir::cleanPath(
