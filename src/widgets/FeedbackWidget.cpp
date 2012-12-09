@@ -114,14 +114,19 @@ void FeedbackWidget::changeEvent( QEvent* event )
     }
 }
 
-bool FeedbackWidget::loadData( const QString& filePath )
+void FeedbackWidget::clear()
 {
-    return d->model->loadData( filePath );
+    d->model->clear();
 }
 
-bool FeedbackWidget::saveData( const QString& filePath ) const
+bool FeedbackWidget::loadFileName( const QString& fileName )
 {
-    return d->model->saveData( filePath );
+    return d->model->loadFileName( fileName );
+}
+
+bool FeedbackWidget::saveFileName( const QString& fileName ) const
+{
+    return d->model->saveFileName( fileName );
 }
 
 #include "FeedbackWidget.moc"

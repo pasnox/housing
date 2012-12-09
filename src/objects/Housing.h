@@ -38,13 +38,11 @@ namespace Housing
     QVariant fromJson( const QByteArray& json, bool* ok = 0 );
     QByteArray toJson( const QVariant& variant, bool* ok = 0 );
     
-    QVariantHash jsonToClass( const QByteArray& json, const QString& className );
-    QByteArray classToJson( const QVariantHash& data, const QString& className );
-    
     QString settingsFilePath( const QString& extended = QString::null );
     
     bool readJsonFile( QVariant& variant, const QString& name );
     bool writeJsonFile( const QVariant& variant, const QString& name );
+    bool removeJsonFile( const QString& name );
     
     QString googleMapGPSUrl( const double& latitude, const double& longitude, char viewType = 'h', int zoom = 15 );
 };

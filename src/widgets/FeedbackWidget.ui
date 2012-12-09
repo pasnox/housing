@@ -29,6 +29,9 @@
    </item>
    <item row="2" column="1">
     <widget class="QToolButton" name="tbFeedbacksRemove">
+     <property name="toolTip">
+      <string>Remove selection from the list</string>
+     </property>
      <property name="icon">
       <iconset theme="list-remove">
        <normaloff/>
@@ -38,6 +41,9 @@
    </item>
    <item row="0" column="1">
     <widget class="QToolButton" name="tbFeedbackAdd">
+     <property name="toolTip">
+      <string>Add a new entry</string>
+     </property>
      <property name="icon">
       <iconset theme="list-add">
        <normaloff/>
@@ -60,6 +66,9 @@
    </item>
    <item row="3" column="1">
     <widget class="QToolButton" name="tbFeedbacksClear">
+     <property name="toolTip">
+      <string>Clear the list</string>
+     </property>
      <property name="icon">
       <iconset theme="edit-clear-list">
        <normaloff/>
@@ -69,8 +78,13 @@
    </item>
    <item row="1" column="1">
     <widget class="QToolButton" name="tbFeedbackEdit">
+     <property name="toolTip">
+      <string>Edit the selection</string>
+     </property>
      <property name="icon">
-      <iconset theme="document-edit"/>
+      <iconset theme="document-edit">
+       <normaloff/>
+      </iconset>
      </property>
     </widget>
    </item>

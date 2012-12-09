@@ -63,8 +63,8 @@ public:
     Feedback feedback( const QModelIndex& index ) const;
     QModelIndex modelIndex( const Feedback& feedback, int column = 0 ) const;
     
-    bool loadData( const QString& filePath );
-    bool saveData( const QString& filePath ) const;
+    bool loadFileName( const QString& fileName );
+    bool saveFileName( const QString& fileName ) const;
 
 public slots:
     void update();

@@ -93,7 +93,7 @@ public:
         connect( proxy, SIGNAL( rowCountChanged( int ) ), this, SLOT( proxy_rowCountChanged( int ) ) );
         connect( ui->pbSearch, SIGNAL( clicked() ), this, SLOT( pbSearch_clicked() ) );
         connect( ui->twPages, SIGNAL( tabCloseRequested( int ) ), this, SLOT( twPages_tabCloseRequested( int ) ) );
-        connect( ui->lvAnnouncements->selectionModel(), SIGNAL( selectionChanged( const QItemSelection&, const QItemSelection& ) ), this, SLOT( lvAnnouncements_selectionChanged() ) );
+        connect( ui->lvAnnouncements->selectionModel(), SIGNAL( selectionChanged( const QItemSelection&, const QItemSelection& ) ), this, SLOT( lvAnnouncements_selectionChanged( const QItemSelection&, const QItemSelection& ) ) );
         connect( ui->aSwitchAnnouncementIgnoreState, SIGNAL( triggered( bool ) ), this, SLOT( switchSelectedAnnouncementIgnoreState( bool ) ) );
         connect( ui->aSwitchAnnouncementBookmarkState, SIGNAL( triggered( bool ) ), this, SLOT( switchSelectedAnnouncementBookmarkState( bool ) ) );
         connect( ui->aOpenAnnouncementInNewTab, SIGNAL( triggered() ), this, SLOT( openSelectedAnnouncementInNewTab() ) );
@@ -159,6 +159,13 @@ public:
     QModelIndex selectedSourceIndex() const {
         return proxy->mapToSource( ui->lvAnnouncements->selectionModel()->selectedIndexes().value( 0 ) );
     }
+    
+    QString feedbackFileName( const QModelIndex& index ) const {
+        return QString( "%1.%2.feedbacks" )
+            .arg( ui->iswSearch->currentDriverName() )
+            .arg( index.data( AnnouncementModel::IdRole ).toInt() )
+        ;
+    }
 
 public slots:
     void  networkRequest_finished( QNetworkReply* reply ) {
@@ -218,10 +225,16 @@ public slots:
         ui->twPages->setTabToolTip( index, view->url().toString() );
     }
     
-    void lvAnnouncements_selectionChanged() {
+    void lvAnnouncements_selectionChanged( const QItemSelection& selected = QItemSelection(), const QItemSelection& deselected = QItemSelection() ) {
+        Q_UNUSED( selected );
+        
         const QModelIndex index = selectedSourceIndex();
         const QString url = index.data( AnnouncementModel::UrlRole ).toString();
         const int id = index.data( AnnouncementModel::IdRole ).toInt();
+        
+        if ( !deselected.isEmpty() ) {
+            ui->fwFeedback->saveFileName( feedbackFileName( deselected.indexes().value( 0 ) ) );
+        }
         
         ui->aSwitchAnnouncementIgnoreState->setEnabled( index.isValid() );
         ui->aSwitchAnnouncementIgnoreState->setChecked( index.isValid() && ui->iswSearch->isIgnoredId( id ) );
@@ -231,6 +244,15 @@ public slots:
         ui->aOpenAnnouncementInDefaultBrowser->setEnabled( index.isValid() );
         ui->aGeotagAnnouncementInNewTab->setEnabled( index.isValid() );
         ui->aGeotagAnnouncementInDefaultBrowser->setEnabled( index.isValid() );
+        
+        if ( !index.isValid() ) {
+            ui->fwFeedback->clear();
+        }
+        else {
+            ui->fwFeedback->loadFileName( feedbackFileName( index ) );
+        }
+        
+        ui->fwFeedback->setEnabled( index.isValid() );
     }
     
     void pbSearch_clicked() {
@@ -373,6 +395,7 @@ void UIMain::closeEvent( QCloseEvent* event )
     settings.setValue( "MainWindow/FilterIgnored", d->proxy->filterAction()->isChecked() );
     settings.setValue( "MainWindow/CurrentDriverName", driver ? driver->name() : QString::null );
     d->ui->iswSearch->saveRequestProperties();
+    d->ui->fwFeedback->saveFileName( d->feedbackFileName( d->selectedSourceIndex() ) );
     
     QMainWindow::closeEvent( event );
 }

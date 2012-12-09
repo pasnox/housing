@@ -24,6 +24,7 @@
 **
 ****************************************************************************/
 #include "FeedbackModel.h"
+#include "objects/Housing.h"
 
 #include <QDateTime>
 #include <QDebug>
@@ -285,14 +286,29 @@ QModelIndex FeedbackModel::modelIndex( const Feedback& feedback, int column ) co
 	return index( d->feedbacks.indexOf( feedback ), column );
 }
 
-bool FeedbackModel::loadData( const QString& filePath )
+bool FeedbackModel::loadFileName( const QString& fileName )
 {
+	QVariant variant;
+    
+    if ( Housing::readJsonFile( variant, fileName ) && variant.type() == QVariant::List ) {
+		const Feedback::List feedbacks = Feedback::variantListToList( variant.toList() );
+        setFeedbacks( feedbacks );
+        return true;
+    }
+	
+	clear();
 	return false;
 }
 
-bool FeedbackModel::saveData( const QString& filePath ) const
+bool FeedbackModel::saveFileName( const QString& fileName ) const
 {
-	return false;
+	const QVariant variant = Feedback::listToVariantList( d->feedbacks );
+	
+	if ( !d->feedbacks.isEmpty() ) {
+		return Housing::writeJsonFile( variant, fileName );
+	}
+	
+	return Housing::removeJsonFile( fileName );
 }
 
 void FeedbackModel::update()

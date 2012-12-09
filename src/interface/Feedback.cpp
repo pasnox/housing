@@ -73,10 +73,10 @@ bool Feedback::operator<( const Feedback& other ) const
 
 Feedback::operator QVariant() const
 {
-    QVariantHash variant;
-    variant[ "dateTime" ] = d->dateTime;
-    variant[ "message" ] = d->message;
-    return Housing::classToJson( variant, "Feedback" );
+    QVariantMap map;
+    map[ "dateTime" ] = d->dateTime;
+    map[ "message" ] = d->message;
+    return map;
 }
 
 Feedback& Feedback::operator=( const QVariant& variant )
@@ -89,10 +89,10 @@ Feedback& Feedback::operator=( const QVariant& variant )
             d = new FeedbackPrivate;
         }
         
-        if ( variant.type() == QVariant::ByteArray ) {
-            const QVariantHash hash = Housing::jsonToClass( variant.toByteArray(), "Feedback" );
-            d->dateTime = hash.value( "dateTime" ).toDateTime();
-            d->message = hash.value( "message" ).toString();
+        if ( variant.type() == QVariant::Map ) {
+            const QVariantMap map = variant.toMap();
+            d->dateTime = map.value( "dateTime" ).toDateTime();
+            d->message = map.value( "message" ).toString();
         }
     }
    

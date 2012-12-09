@@ -14,8 +14,9 @@ public:
     FeedbackWidget( QWidget* parent = 0 );
     virtual ~FeedbackWidget();
     
-    bool loadData( const QString& filePath );
-    bool saveData( const QString& filePath ) const;
+    void clear();
+    bool loadFileName( const QString& fileName );
+    bool saveFileName( const QString& fileName ) const;
     
 protected:
     FeedbackWidgetPrivate* d;

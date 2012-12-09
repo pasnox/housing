@@ -55,30 +55,6 @@ QByteArray Housing::toJson( const QVariant& variant, bool* ok )
     return json;
 }
 
-QVariantHash Housing::jsonToClass( const QByteArray& json, const QString& className )
-{
-    bool ok;
-    const QVariant variant = Housing::fromJson( json, &ok );
-    QVariantHash hash;
-    
-    if ( ok && variant.type() == QVariant::Hash ) {
-        const QVariantHash variantHash = variant.toHash();
-        
-        if ( variantHash.value( "className" ).toString().toLower().trimmed() == className.toLower().trimmed() ) {
-            hash = variantHash;
-        }
-    }
-    
-    return hash;
-}
-
-QByteArray Housing::classToJson( const QVariantHash& _data, const QString& className )
-{
-    QVariantHash data = _data;
-    data[ "className" ] = className.trimmed();
-    return Housing::toJson( data );
-}
-
 QString Housing::settingsFilePath( const QString& extended )
 {
     return QDir::toNativeSeparators( QDir::cleanPath(
@@ -137,6 +113,17 @@ bool Housing::writeJsonFile( const QVariant& variant, const QString& name )
     }
     
     return ok;
+}
+
+bool Housing::removeJsonFile( const QString& name )
+{
+    const QString filePath = Housing::settingsFilePath( name );
+    
+    if ( QFile::exists( filePath ) ) {
+        return QFile::remove( filePath );
+    }
+    
+    return true;
 }
 
 QString Housing::googleMapGPSUrl( const double& latitude, const double& longitude, char viewType, int zoom )
