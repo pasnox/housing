@@ -115,6 +115,53 @@ QVariant CityModel::headerData( int section, Qt::Orientation orientation, int ro
     return QAbstractTableModel::headerData( section, orientation, role );
 }
 
+void CityModel::sort( int column, Qt::SortOrder order )
+{
+	Q_UNUSED( column );
+	
+	if ( rowCount() == 0 ) {
+		return;
+	}
+	
+	emit layoutAboutToBeChanged();
+	
+	const QModelIndexList oldIndexes = persistentIndexList();
+	QModelIndexList newIndexes;
+	
+	QMap<int, City> oldMapping;
+	QMap<City, int> newMapping;
+	
+	for ( int i = 0; i < d->cities.count(); i++ ) {
+		oldMapping[ i ] = d->cities[ i ];
+	}
+	
+	switch ( order ) {
+		case Qt::AscendingOrder: {
+			qSort( d->cities.begin(), d->cities.end() );
+			break;
+		}
+		
+		case Qt::DescendingOrder: {
+			qSort( d->cities.begin(), d->cities.end(), qGreater<City>() );
+			break;
+		}
+	}
+	
+	for ( int i = 0; i < d->cities.count(); i++ ) {
+		newMapping[ d->cities[ i ] ] = i;
+	}
+	
+	for ( int i = 0; i < oldIndexes.count(); i++ ) {
+		const QModelIndex& index = oldIndexes[ i ];
+		const City& city = oldMapping[ index.row() ];
+		newIndexes << QAbstractTableModel::index( newMapping[ city ], index.column() );
+	}
+	
+	changePersistentIndexList( oldIndexes, newIndexes );
+	
+	emit layoutChanged();
+}
+
 void CityModel::clear()
 {
     const int count = d->cities.count();
@@ -140,6 +187,7 @@ void CityModel::setCities( const City::List& cities )
     
     beginInsertRows( QModelIndex(), 0, count -1 );
     d->cities = cities;
+	qSort( d->cities );
     endInsertRows();
 }
 
@@ -159,6 +207,7 @@ void CityModel::addCity( const City& city )
 	beginInsertRows( QModelIndex(), count, count );
 	d->cities << city;
 	endInsertRows();
+	sort( 0 );
 }
 
 City CityModel::city( const QModelIndex& index ) const

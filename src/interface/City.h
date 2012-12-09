@@ -44,6 +44,7 @@ public:
     
     virtual City& operator=( const City& other );
     virtual bool operator==( const City& other ) const;
+    virtual bool operator<( const City& other ) const;
     
     bool isNull() const;
     QString label() const;

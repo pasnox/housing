@@ -89,6 +89,11 @@ bool City::operator==( const City& other ) const
     return d->value == other.d->value;
 }
 
+bool City::operator<( const City& other ) const
+{
+    return d->label.compare( other.d->label ) < 0;
+}
+
 bool City::isNull() const
 {
     return d->label.isEmpty() &&
