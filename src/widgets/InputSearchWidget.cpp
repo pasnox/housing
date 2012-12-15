@@ -35,6 +35,7 @@ class InputSearchWidgetPrivate : public QObject {
 
 public:
     InputSearchWidget* widget;
+    
     Ui_InputSearchWidget* ui;
     QSet<int> ignoredIdSet;
     QSet<int> bookmarkedIdSet;
@@ -47,8 +48,11 @@ public:
     {
         ui->setupUi( widget );
         
-        // TODO: replace with a Fresh pCheckComboBox when possible
-        ui->cbProperties->addItem( InputSearchWidget::tr( "None" ), AbstractHousingDriver::SearchPropertyNone );
+        ui->bgType->setId( ui->rbPurchase, AbstractHousingDriver::SearchTypePurchase );
+        ui->bgType->setId( ui->rbRent, AbstractHousingDriver::SearchTypeRent );
+        
+        ui->cbProperties->addItem( InputSearchWidget::tr( "All" ), AbstractHousingDriver::SearchPropertyAll );
+        ui->cbProperties->addSeparator();
         ui->cbProperties->addItem( InputSearchWidget::tr( "Apartment" ), AbstractHousingDriver::SearchPropertyApartment );
         ui->cbProperties->addItem( InputSearchWidget::tr( "House / Villa" ), AbstractHousingDriver::SearchPropertyHouseOrVilla );
         ui->cbProperties->addItem( InputSearchWidget::tr( "Parking / Box" ), AbstractHousingDriver::SearchPropertyParkingOrBox );
@@ -62,9 +66,7 @@ public:
         ui->cbProperties->addItem( InputSearchWidget::tr( "Castle" ), AbstractHousingDriver::SearchPropertyCastle );
         ui->cbProperties->addItem( InputSearchWidget::tr( "Mansion" ), AbstractHousingDriver::SearchPropertyMansion );
         ui->cbProperties->addItem( InputSearchWidget::tr( "Others" ), AbstractHousingDriver::SearchPropertyOthers );
-        ui->cbProperties->addItem( InputSearchWidget::tr( "All" ), AbstractHousingDriver::SearchPropertyAll );
         
-        // TODO: replace with a Fresh pCheckComboBox when possible
         ui->cbSorting->addItem( InputSearchWidget::tr( "None" ), AbstractHousingDriver::SearchSortingNone );
         ui->cbSorting->addItem( InputSearchWidget::tr( "Ascending date" ), AbstractHousingDriver::SearchSortingAscendingDate );
         ui->cbSorting->addItem( InputSearchWidget::tr( "Descending date" ), AbstractHousingDriver::SearchSortingDescendingDate );
@@ -73,8 +75,8 @@ public:
         ui->cbSorting->addItem( InputSearchWidget::tr( "Ascending surface" ), AbstractHousingDriver::SearchSortingAscendingSurface );
         ui->cbSorting->addItem( InputSearchWidget::tr( "Descending surface" ), AbstractHousingDriver::SearchSortingDescendingSurface );
         
-        // TODO: replace with a Fresh pCheckComboBox when possible
-        ui->cbFeatures->addItem( InputSearchWidget::tr( "None" ), AbstractHousingDriver::SearchFeatureNone );
+        ui->cbFeatures->addItem( InputSearchWidget::tr( "All" ), AbstractHousingDriver::SearchFeatureAll );
+        ui->cbFeatures->addSeparator();
         ui->cbFeatures->addItem( InputSearchWidget::tr( "Elevator" ), AbstractHousingDriver::SearchFeatureElevator );
         ui->cbFeatures->addItem( InputSearchWidget::tr( "Digicode" ), AbstractHousingDriver::SearchFeatureDigicode );
         ui->cbFeatures->addItem( InputSearchWidget::tr( "Intercom" ), AbstractHousingDriver::SearchFeatureIntercom );
@@ -85,7 +87,6 @@ public:
         ui->cbFeatures->addItem( InputSearchWidget::tr( "Parking" ), AbstractHousingDriver::SearchFeatureParking );
         ui->cbFeatures->addItem( InputSearchWidget::tr( "Box" ), AbstractHousingDriver::SearchFeatureBox );
         ui->cbFeatures->addItem( InputSearchWidget::tr( "Cellar" ), AbstractHousingDriver::SearchFeatureCellar );
-        ui->cbFeatures->addItem( InputSearchWidget::tr( "All" ), AbstractHousingDriver::SearchFeatureAll );
         
         foreach ( AbstractHousingDriver* driver, AbstractHousingDriver::registeredDrivers() ) {
             ui->cbDrivers->addItem( driver->name(), *driver );
@@ -111,19 +112,27 @@ public slots:
             const QMap<QString, QString> bedrooms = driver->bedroomsInputs();
             
             ui->cswCities->setCityQuery( driver->cityQuery() );
-            
-            // TODO: replace with a Fresh pCheckComboBox when possible
             ui->cbRooms->clear();
-            
-            foreach ( const QString& label, rooms.keys() ) {
-                ui->cbRooms->addItem( label, rooms[ label ] );
-            }
-            
-            // TODO: replace with a Fresh pCheckComboBox when possible
             ui->cbBedrooms->clear();
             
+            foreach ( const QString& label, rooms.keys() ) {
+                if ( rooms[ label ] == "all" ) {
+                    ui->cbRooms->insertItem( 0, label, rooms[ label ] );
+                    ui->cbRooms->insertSeparator( 1 );
+                }
+                else {
+                    ui->cbRooms->addItem( label, rooms[ label ] );
+                }
+            }
+            
             foreach ( const QString& label, bedrooms.keys() ) {
-                ui->cbBedrooms->addItem( label, bedrooms[ label ] );
+                if ( bedrooms[ label ] == "all" ) {
+                    ui->cbBedrooms->insertItem( 0, label, bedrooms[ label ] );
+                    ui->cbBedrooms->insertSeparator( 1 );
+                }
+                else {
+                    ui->cbBedrooms->addItem( label, bedrooms[ label ] );
+                }
             }
         }
         
@@ -230,17 +239,20 @@ QSet<int> InputSearchWidget::bookmarkedIdSet() const
 
 void InputSearchWidget::setRequestProperties( const AbstractHousingDriver::RequestProperties& properties )
 {
+    QAbstractButton* button = d->ui->bgType->button( properties.type );
     QComboBox* cb = 0;
     
-    if ( properties.type == AbstractHousingDriver::SearchTypeRent ) {
-        d->ui->rbRent->setChecked( true );
-    }
-    else {
-        d->ui->rbPurchase->setChecked( true );
+    if ( !button ) {
+        button = d->ui->rbPurchase;
     }
     
+    button->setChecked( true );
+    
     cb = d->ui->cbSorting;
-    cb->setCurrentIndex( cb->findData( properties.sorting ) );
+    
+    for ( int i = 0; i < cb->count(); i++ ) {
+        //cb->setCurrentIndex( cb->findData( properties.sorting ) );
+    }
     
     cb = d->ui->cbProperties;
     cb->setCurrentIndex( cb->findData( int( properties.properties ) ) );

@@ -49,6 +49,9 @@
          <property name="text">
           <string>Rent</string>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">bgType</string>
+         </attribute>
         </widget>
        </item>
        <item>
@@ -59,6 +62,9 @@
          <property name="checked">
           <bool>true</bool>
          </property>
+         <attribute name="buttonGroup">
+          <string notr="true">bgType</string>
+         </attribute>
         </widget>
        </item>
       </layout>
@@ -83,7 +89,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="pComboBox" name="cbProperties"/>
+        <widget class="pCheckComboBox" name="cbProperties"/>
        </item>
       </layout>
      </widget>
@@ -95,7 +101,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="pComboBox" name="cbRooms"/>
+        <widget class="pCheckComboBox" name="cbRooms"/>
        </item>
       </layout>
      </widget>
@@ -107,7 +113,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <widget class="pComboBox" name="cbBedrooms"/>
+        <widget class="pCheckComboBox" name="cbBedrooms"/>
        </item>
       </layout>
      </widget>
@@ -296,7 +302,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
-        <widget class="pComboBox" name="cbFeatures"/>
+        <widget class="pCheckComboBox" name="cbFeatures"/>
        </item>
       </layout>
      </widget>
@@ -316,7 +322,15 @@
    <extends>QComboBox</extends>
    <header>FreshGui/pComboBox</header>
   </customwidget>
+  <customwidget>
+   <class>pCheckComboBox</class>
+   <extends>QComboBox</extends>
+   <header location="global">pCheckComboBox.h</header>
+  </customwidget>
  </customwidgets>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="bgType"/>
+ </buttongroups>
 </ui>
