@@ -259,11 +259,15 @@ void SeLogerHousingDriver::setUpSearchRequest( QNetworkRequest& request, QByteAr
         types << "15";
     }
     
-    if ( properties.type == AbstractHousingDriver::SearchTypeRent ) {
-        url.addQueryItem( "idtt", "1" );
-    }
-    else {
-        url.addQueryItem( "idtt", "2" );
+    switch ( properties.type ) {
+        case AbstractHousingDriver::SearchTypeRent:
+            url.addQueryItem( "idtt", "1" );
+            break;
+        case AbstractHousingDriver::SearchTypePurchase:
+            url.addQueryItem( "idtt", "2" );
+            break;
+        default:
+            break;
     }
     
     url.addQueryItem( "ci", cities.join( "," ) );
