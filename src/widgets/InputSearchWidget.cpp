@@ -249,24 +249,49 @@ void InputSearchWidget::setRequestProperties( const AbstractHousingDriver::Reque
     button->setChecked( true );
     
     cb = d->ui->cbSorting;
-    
-    for ( int i = 0; i < cb->count(); i++ ) {
-        //cb->setCurrentIndex( cb->findData( properties.sorting ) );
-    }
+    cb->setCurrentIndex( cb->findData( int( properties.sorting ) ) );
     
     cb = d->ui->cbProperties;
-    cb->setCurrentIndex( cb->findData( int( properties.properties ) ) );
+    for ( int i = 0; i < cb->count(); i++ ) {
+        const int flag = cb->itemData( i, Qt::UserRole ).toInt();
+        bool check = properties.properties & flag;
+        
+        if ( check && flag == AbstractHousingDriver::SearchPropertyAll ) {
+            check = flag == properties.properties;
+        }
+        
+        cb->setItemData( i, check ? Qt::Checked : Qt::Unchecked, Qt::CheckStateRole );
+    }
     
     cb = d->ui->cbFeatures;
-    cb->setCurrentIndex( cb->findData( int( properties.features ) ) );
+    for ( int i = 0; i < cb->count(); i++ ) {
+        const int flag = cb->itemData( i, Qt::UserRole ).toInt();
+        bool check = properties.features & flag;
+        
+        if ( check && flag == AbstractHousingDriver::SearchFeatureAll ) {
+            check = flag == properties.features;
+        }
+        
+        cb->setItemData( i, check ? Qt::Checked : Qt::Unchecked, Qt::CheckStateRole );
+    }
     
     d->ui->cswCities->setCities( properties.cities );
     
     cb = d->ui->cbRooms;
-    cb->setCurrentIndex( cb->findData( properties.numberOfRooms().value( 0 ).toString() ) );
+    const QSet<QVariant> roomsSet = properties.numberOfRooms().toSet();
+    for ( int i = 0; i < cb->count(); i++ ) {
+        const QVariant flag = cb->itemData( i, Qt::UserRole );
+        bool check = roomsSet.contains( flag );
+        cb->setItemData( i, check ? Qt::Checked : Qt::Unchecked, Qt::CheckStateRole );
+    }
     
     cb = d->ui->cbBedrooms;
-    cb->setCurrentIndex( cb->findData( properties.numberOfBedrooms().value( 0 ).toString() ) );
+    const QSet<QVariant> bedroomsSet = properties.numberOfBedrooms().toSet();
+    for ( int i = 0; i < cb->count(); i++ ) {
+        const QVariant flag = cb->itemData( i, Qt::UserRole );
+        bool check = bedroomsSet.contains( flag );
+        cb->setItemData( i, check ? Qt::Checked : Qt::Unchecked, Qt::CheckStateRole );
+    }
     
     d->ui->sbMinBudget->setValue( properties.minimumBudget() );
     d->ui->sbMaxBudget->setValue( properties.maximumBudget() );
@@ -284,27 +309,56 @@ AbstractHousingDriver::RequestProperties InputSearchWidget::requestProperties() 
     AbstractHousingDriver::RequestProperties properties;
     QComboBox* cb = 0;
     
-    properties.type = d->ui->rbRent->isChecked()
-        ? AbstractHousingDriver::SearchTypeRent
-        : AbstractHousingDriver::SearchTypePurchase
-    ;
+    properties.type = AbstractHousingDriver::SearchType( d->ui->bgType->checkedId() );
     
     cb = d->ui->cbSorting;
-    properties.setSorting( cb->itemData( cb->currentIndex() ).toInt() );
+    properties.sorting = AbstractHousingDriver::SearchSortingFlag( cb->itemData( cb->currentIndex() ).toInt() );
     
     cb = d->ui->cbProperties;
-    properties.setProperties( cb->itemData( cb->currentIndex() ).toInt() );
+    for ( int i = 0; i < cb->count(); i++ ) {
+        const bool isChecked = cb->itemData( i, Qt::CheckStateRole ).toInt() == Qt::Checked;
+        
+        if ( isChecked ) {
+            const int flag = cb->itemData( i, Qt::UserRole ).toInt();
+            properties.properties |= AbstractHousingDriver::SearchProperty( flag );
+        }
+    }
     
     cb = d->ui->cbFeatures;
-    properties.setFeatures( cb->itemData( cb->currentIndex() ).toInt() );
+    for ( int i = 0; i < cb->count(); i++ ) {
+        const bool isChecked = cb->itemData( i, Qt::CheckStateRole ).toInt() == Qt::Checked;
+        
+        if ( isChecked ) {
+            const int flag = cb->itemData( i, Qt::UserRole ).toInt();
+            properties.features |= AbstractHousingDriver::SearchFeature( flag );
+        }
+    }
     
     properties.cities = d->ui->cswCities->cities();
     
     cb = d->ui->cbRooms;
-    properties.setNumberOfRooms( QVariantList() << cb->itemData( cb->currentIndex() ).toString() );
+    QVariantList rooms;
+    for ( int i = 0; i < cb->count(); i++ ) {
+        const bool isChecked = cb->itemData( i, Qt::CheckStateRole ).toInt() == Qt::Checked;
+        
+        if ( isChecked ) {
+            const QVariant flag = cb->itemData( i, Qt::UserRole );
+            rooms << flag;
+        }
+    }
+    properties.setNumberOfRooms( rooms );
     
     cb = d->ui->cbBedrooms;
-    properties.setNumberOfBedrooms( QVariantList() << cb->itemData( cb->currentIndex() ).toString() );
+    QVariantList bedrooms;
+    for ( int i = 0; i < cb->count(); i++ ) {
+        const bool isChecked = cb->itemData( i, Qt::CheckStateRole ).toInt() == Qt::Checked;
+        
+        if ( isChecked ) {
+            const QVariant flag = cb->itemData( i, Qt::UserRole );
+            bedrooms << flag;
+        }
+    }
+    properties.setNumberOfBedrooms( bedrooms );
     
     properties.setMinimumBudget( d->ui->sbMinBudget->value() );
     properties.setMaximumBudget( d->ui->sbMaxBudget->value() );
