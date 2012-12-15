@@ -47,6 +47,7 @@ class AbstractHousingDriver : public QObject
 public:
     // kind of search
     enum SearchType {
+        SearchTypeNone = 0x0, // no search type
         SearchTypeRent = 0x1, // can search for renting
         SearchTypePurchase = 0x2, // can search for purchase
         SearchTypeAll = SearchTypeRent | SearchTypePurchase // can search both purchase and renting
@@ -146,11 +147,6 @@ public:
         void fromVariant( const QVariant& variant );
         
         // helpers
-        void setType( int value );
-        void setSorting( int value );
-        void setProperties( int value );
-        void setFeatures( int value );
-        
         void setNumberOfRooms( const QVariantList& values );
         QVariantList numberOfRooms() const;
         

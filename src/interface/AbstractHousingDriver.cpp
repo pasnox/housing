@@ -43,7 +43,13 @@ static AbstractHousingDriverPrivate mRegisteredDrivers;
 
 AbstractHousingDriver::RequestProperties::RequestProperties( const QVariant& variant )
 {
-    if ( !variant.isNull() ) {
+    if ( variant.isNull() ) {
+        type = AbstractHousingDriver::SearchTypeNone;
+        sorting = AbstractHousingDriver::SearchSortingNone;
+        properties = AbstractHousingDriver::SearchPropertyNone;
+        features = AbstractHousingDriver::SearchFeatureNone;
+    }
+    else {
         fromVariant( variant );
     }
 }
@@ -114,26 +120,6 @@ void AbstractHousingDriver::RequestProperties::fromVariant( const QVariant& vari
     foreach ( const QVariant& id, variantBookmarked ) {
         bookmarkedIdSet << id.toInt();
     }
-}
-
-void AbstractHousingDriver::RequestProperties::setType( int value )
-{
-    type = AbstractHousingDriver::SearchType( value );
-}
-
-void AbstractHousingDriver::RequestProperties::setSorting( int value )
-{
-    sorting = AbstractHousingDriver::SearchSortingFlag( value );
-}
-
-void AbstractHousingDriver::RequestProperties::setProperties( int value )
-{
-    properties = AbstractHousingDriver::SearchProperties( value );
-}
-
-void AbstractHousingDriver::RequestProperties::setFeatures( int value )
-{
-    features = AbstractHousingDriver::SearchFeatures( value );
 }
 
 void AbstractHousingDriver::RequestProperties::setNumberOfRooms( const QVariantList& values )
