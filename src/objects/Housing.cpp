@@ -141,3 +141,40 @@ QString Housing::googleMapGPSUrl( const double& latitude, const double& longitud
         .arg( longitude )
     ;
 }
+
+uint qHash( const QVariant& variant )
+{
+    switch ( variant.type() ) {
+        case QVariant::String:
+        case QVariant::Bool:
+        case QVariant::Color:
+        case QVariant::Date:
+        case QVariant::Time:
+        case QVariant::DateTime:
+        case QVariant::Font:
+        case QVariant::KeySequence:
+        case QVariant::Locale:
+        case QVariant::Url:
+            return qHash( variant.toString() );
+        case QVariant::ByteArray:
+            return qHash( variant.toByteArray() );
+        case QVariant::Char:
+            return qHash( variant.toChar() );
+        case QVariant::StringList:
+            return qHash( variant.toStringList().join( QString::null ) );
+        case QVariant::Double:
+        case QVariant::LongLong:
+            return qHash( variant.toLongLong() );
+        case QVariant::ULongLong:
+            return qHash( variant.toULongLong() );
+        case QVariant::Int:
+            return qHash( variant.toInt() );
+        case QVariant::UInt:
+            return qHash( variant.toUInt() );
+        default:
+            qWarning( "%s: Type not supported: %i, %i, %s", Q_FUNC_INFO, variant.type(), variant.userType(), variant.typeName() );
+            break;
+    }
+    
+    return quintptr( &variant );
+}

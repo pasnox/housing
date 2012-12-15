@@ -47,4 +47,6 @@ namespace Housing
     QString googleMapGPSUrl( const double& latitude, const double& longitude, char viewType = 'h', int zoom = 15 );
 };
 
+uint qHash( const QVariant& variant );
+
 #endif // HOUSING_H
