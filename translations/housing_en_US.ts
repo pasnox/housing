@@ -243,230 +243,228 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="57"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="60"/>
         <source>Purchase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="70"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="76"/>
         <source>Cities</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="82"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="88"/>
         <source>Properties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="94"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="100"/>
         <source>Rooms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="106"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="112"/>
         <source>Bedrooms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="118"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="124"/>
         <source>Budget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="130"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="185"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="240"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="136"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="191"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="246"/>
         <source>Min.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="137"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="160"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="192"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="215"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="247"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="270"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="143"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="166"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="198"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="221"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="253"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="276"/>
         <source>Indifferent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="153"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="208"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="263"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="159"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="214"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="269"/>
         <source>Max.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="173"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="179"/>
         <source>Surface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="228"/>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="55"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="234"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="59"/>
         <source>Ground</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="283"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="289"/>
         <source>Sorting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="295"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="301"/>
         <source>Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="51"/>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="68"/>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="77"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="70"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="52"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="56"/>
         <source>Apartment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="53"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="57"/>
         <source>House / Villa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="54"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="58"/>
         <source>Parking / Box</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="56"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="60"/>
         <source>Shop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="57"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="61"/>
         <source>Commercial Local</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="58"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="62"/>
         <source>Offices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="59"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="63"/>
         <source>Loft / Workshop / Surface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="60"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="64"/>
         <source>Tenement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="61"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="65"/>
         <source>Building</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="62"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="66"/>
         <source>Castle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="63"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="67"/>
         <source>Mansion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="64"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="68"/>
         <source>Others</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="65"/>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="88"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="54"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="78"/>
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="69"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="71"/>
         <source>Ascending date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="70"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="72"/>
         <source>Descending date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="71"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="73"/>
         <source>Ascending price</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="72"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="74"/>
         <source>Descending price</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="73"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="75"/>
         <source>Ascending surface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="74"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="76"/>
         <source>Descending surface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="78"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="80"/>
         <source>Elevator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="79"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="81"/>
         <source>Digicode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="80"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="82"/>
         <source>Intercom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="81"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="83"/>
         <source>Caretaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="82"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="84"/>
         <source>Pool</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="83"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="85"/>
         <source>Terrace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="84"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="86"/>
         <source>Balcony</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="85"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="87"/>
         <source>Parking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="86"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="88"/>
         <source>Box</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.cpp" line="87"/>
+        <location filename="../src/widgets/InputSearchWidget.cpp" line="89"/>
         <source>Cellar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -508,17 +506,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="384"/>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="388"/>
         <source>%s: Can&apos;t set focus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="395"/>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="399"/>
         <source>%s: Invalid query</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="404"/>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="408"/>
         <source>%s: Can&apos;t evaluateTo</source>
         <translation type="unfinished"></translation>
     </message>
