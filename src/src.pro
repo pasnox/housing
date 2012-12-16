@@ -54,10 +54,18 @@ CONFIG(debug, debug|release) {
     RCC_DIR = $${BUILD_PATH}/release/rcc
 }
 
-FRESH_BUNDLE_PATH = src/3rdparty/fresh.git
-FRESH_BUNDLE_LIB_PATH = $(PWD)/3rdparty/fresh.git
+isEqual( _PRO_FILE_PWD_, $${OUT_PWD} ) {
+    FRESH_BUNDLE_PATH = 3rdparty/fresh.git
+    FRESH_BUNDLE_LIB_PATH = 3rdparty/fresh.git
+} else {
+    FRESH_BUNDLE_PATH = $${_PRO_FILE_PWD_}/3rdparty/fresh.git
+    FRESH_BUNDLE_LIB_PATH = $${OUT_PWD}/3rdparty/fresh.git
+}
+
 include( ../fresh-bundle.pri )
 include( 3rdparty/qjson.pri )
+
+#PRE_TARGETDEPS *= $${FRESH_BUNDLE_PATH}
 
 RESOURCES *= ../resources/housing.qrc
 

@@ -13,7 +13,10 @@ fresh {
 
     exists( $${FRESH_BUNDLE_PATH}/fresh.pro ) {
         SUBDIRS *= $${FRESH_BUNDLE_PATH}/fresh.pro
-        !build_pass:message( "Using bundled fresh library." )
+        !build_pass:message( "Using bundled fresh library (1)." )
+    } else:exists( $${_PRO_FILE_PWD_}/$${FRESH_BUNDLE_PATH}/fresh.pro ) {
+        SUBDIRS *= $${_PRO_FILE_PWD_}/$${FRESH_BUNDLE_PATH}/fresh.pro
+        !build_pass:message( "Using bundled fresh library (2)." )
     } else {
         !build_pass:error( "Fresh library not found - Execute: git submodule init && git submodule update." )
     }
