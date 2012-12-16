@@ -1,4 +1,4 @@
-QJSON_LIB	= $$PWD/qjson.git
+QJSON_LIB	= $${PWD}/qjson.git
 win32:DEFINES *= QJSON_EXPORT=
 
 INCLUDEPATH	*= $${QJSON_LIB}/src
