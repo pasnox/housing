@@ -26,6 +26,7 @@
 #include <QApplication>
 #include <QLibraryInfo>
 #include <QFileInfo>
+#include <QIcon>
 #include <QDebug>
 
 #include <FreshCore/pTranslationManager>
@@ -43,6 +44,20 @@ int main( int argc, char** argv )
     app.setApplicationVersion( "1.0.0" );
     app.setOrganizationDomain( "sodream.org" );
     app.setOrganizationName( "SoDream" );
+	
+#if !( defined( Q_OS_UNIX ) && !defined( Q_OS_MAC ) )
+	const QStringList themesPaths = QIcon::themeSearchPaths()
+#if defined( Q_OS_MACX )
+        << QString( "%1/../../../Resources" ).arg( QApplication::applicationDirPath() )
+#else
+        << QApplication::applicationDirPath()
+#endif
+	;
+	
+	QIcon::setThemeSearchPaths( themesPaths );
+	QIcon::setThemeName( "Oxygen" );
+#endif
+	
     app.setWindowIcon( QIcon::fromTheme( "go-home" ) );
     
     const QStringList paths = QStringList()
