@@ -1,7 +1,7 @@
 REM Update external git repositories needed to build the project
 git submodule update --init --recursive
 
-REM Download oxygen them for windows
+REM Download oxygen theme for windows
 SET ICONS_THEME="oxygen-theme"
 SET ICONS_THEME_GIT="oxygen-icons-png.git"
 
