@@ -12,7 +12,7 @@ if [ "$OS" == "darwin" ] || [[ "$OS" == *"_nt-"* ]] || [[ "$OS" == *"cygwin"* ]]
 
     if [ ! -d "$ICONS_THEME" ]; then
         git clone https://github.com/pasnox/oxygen-icons-png.git "$ICONS_THEME_GIT"
-        mv "$ICONS_THEME_GIT\oxygen" "$ICONS_THEME"
+        mv "$ICONS_THEME_GIT/$ICONS_THEME" .
         rm -fr "$ICONS_THEME_GIT"
     fi
 fi
