@@ -7,7 +7,7 @@ git submodule update --init --recursive
 OS=`uname -s | tr '[:upper:]' '[:lower:]'`
 
 if [ "$OS" == "darwin" ] || [[ "$OS" == *"_nt-"* ]] || [[ "$OS" == *"cygwin"* ]] || [[ "$OS" == *"mingw"* ]] || [[ "$OS" == *"uwin"* ]]; then
-    ICONS_THEME="oxygen-theme"
+    ICONS_THEME="oxygen"
     ICONS_THEME_GIT="oxygen-icons-png.git"
 
     if [ ! -d "$ICONS_THEME" ]; then
