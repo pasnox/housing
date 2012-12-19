@@ -5,7 +5,7 @@
 ##  Project   : housing
 ##  FileName  : housing.pro
 ##  Date      : 2012-11-15T18:57:50
-##  License   : GPL
+##  License   : GPL3
 ##  Comment   : Creating using Monkey Studio RAD
 ##  Home Page : https://github.com/pasnox/housing
 ##

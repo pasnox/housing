@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;Qt;
+Exec=housing
+Name=Housing
+GenericName=Housing
+Comment=Free, fast and powerful housings searcher
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=go-home

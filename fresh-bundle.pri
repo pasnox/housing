@@ -44,9 +44,9 @@ fresh {
     INCLUDEPATH *= $${FRESH_BUNDLE_PATH}/include
     INCLUDEPATH *= $${FRESH_SOURCES_PATHS}
 
-    QMAKE_RPATHDIR *= $${FRESH_BUNDLE_LIB_PATH}/build
-    macx:LIBS *= -F$${FRESH_BUNDLE_LIB_PATH}/build
-    LIBS *= -L$${FRESH_BUNDLE_LIB_PATH}/build
+    QMAKE_RPATHDIR *= $${FRESH_BUNDLE_LIB_PATH}/../build
+    macx:LIBS *= -F$${FRESH_BUNDLE_LIB_PATH}/../build
+    LIBS *= -L$${FRESH_BUNDLE_LIB_PATH}/../build
 
     QT *= xml network
     !macx:qtAddLibrary( fresh )

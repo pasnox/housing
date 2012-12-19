@@ -5,7 +5,7 @@
 ##  Project   : housing
 ##  FileName  : src.pro
 ##  Date      : 2012-11-15T18:57:50
-##  License   : GPL
+##  License   : GPL3
 ##  Comment   : Creating using Monkey Studio RAD
 ##  Home Page : https://github.com/pasnox/housing
 ##
@@ -64,6 +64,7 @@ isEqual( _PRO_FILE_PWD_, $${OUT_PWD} ) {
 
 include( ../fresh-bundle.pri )
 include( 3rdparty/qjson.pri )
+include( installs.pri )
 
 #PRE_TARGETDEPS *= $${FRESH_BUNDLE_PATH}
 
