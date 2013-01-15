@@ -24,6 +24,7 @@
 **
 ****************************************************************************/
 #include <QApplication>
+#include <QScopedPointer>
 #include <QLibraryInfo>
 #include <QFileInfo>
 #include <QIcon>
@@ -35,28 +36,48 @@
 #include "seloger/SeLogerHousingDriver.h"
 
 #if defined( DESKTOP_UI )
+    #include "mainwindow/UIMain_p.h"
     #include "mainwindow/UIDesktopMain.h"
 #elif defined( MOBILE_UI )
+    #include "mainwindow/UIMain_p.h"
     #include "mainwindow/UIMobileMain.h"
+#elif defined( QML_UI )
+    #include "qmlapplicationviewer.h"
 #else
 #error Unknown interface.
+#endif
+
+#if defined( QML_UI )
+QString fixedPath( const QString& filePath )
+{
+#if defined( Q_OS_QNX )
+    return filePath;
+#else
+    return QString( "../../bbxtest/%1" ).arg( filePath );
+#endif
+    return filePath;
+}
 #endif
 
 int main( int argc, char** argv )
 {
     // init application
-    QApplication app( argc, argv );
-    app.setApplicationName( "Housing" );
-    app.setApplicationVersion( "1.0.0" );
-    app.setOrganizationDomain( "sodream.org" );
-    app.setOrganizationName( "SoDream" );
+#if defined( QML_UI )
+    QScopedPointer<QApplication> app( createApplication( argc, argv ) );
+#else
+    QScopedPointer<QApplication> app( new QApplication( argc, argv ) );
+#endif
+    app->setApplicationName( "Housing" );
+    app->setApplicationVersion( "1.0.0" );
+    app->setOrganizationDomain( "sodream.org" );
+    app->setOrganizationName( "SoDream" );
 	
 #if !( defined( Q_OS_UNIX ) && !defined( Q_OS_MAC ) ) || defined( Q_OS_BLACKBERRY )
 	const QStringList themesPaths = QIcon::themeSearchPaths()
 #if defined( Q_OS_MACX )
         << QString( "%1/../../../Resources" ).arg( QApplication::applicationDirPath() )
 #elif defined( Q_OS_BLACKBERRY )
-        << "app/native"
+        << QApplication::applicationDirPath()
 #else
         << QApplication::applicationDirPath()
 #endif
@@ -66,7 +87,7 @@ int main( int argc, char** argv )
 	QIcon::setThemeName( "Oxygen" );
 #endif
 	
-    app.setWindowIcon( QIcon::fromTheme( "go-home" ) );
+    app->setWindowIcon( QIcon::fromTheme( "go-home" ) );
     
     const QStringList paths = QStringList()
         << QLibraryInfo::location( QLibraryInfo::TranslationsPath )
@@ -92,15 +113,20 @@ int main( int argc, char** argv )
     AbstractHousingDriver::registerDriver( new SeLogerHousingDriver );
 
     // init main window
-#if defined( DESKTOP_UI )
-    UIDesktopMain w;
-#elif defined( MOBILE_UI )
-    UIMobileMain w;
-#endif
-    w.setWindowTitle( app.applicationName() );
+#if defined( DESKTOP_UI ) || defined( MOBILE_UI )
+    UIMain w;
+    w.setWindowTitle( app->applicationName() );
     w.showMaximized();
+#elif defined( QML_UI )
+    QmlApplicationViewer viewer;
+    viewer.addImportPath(fixedPath("modules")); // ADDIMPORTPATH
+    viewer.addImportPath("/opt/Qt4.8.4/imports"); // ADDIMPORTPATH
+    viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto); // ORIENTATION
+    viewer.setMainQmlFile(fixedPath("qml/main.qml")); // MAINQML
+    viewer.showExpanded();
+#endif
 
     // run application
-    QObject::connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
-    return app.exec();
+    QObject::connect( app.data(), SIGNAL( lastWindowClosed() ), app.data(), SLOT( quit() ) );
+    return app->exec();
 }

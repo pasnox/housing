@@ -76,14 +76,21 @@ TRANSLATIONS *= \
     ../translations/housing_en_US.ts
 
 blackberry {
+    DEFINES *= QML_UI
+    # include bbx specific config
+    include( bbx.pri )
+
+    # Please do not modify the following line.
+    include(qmlapplicationviewer/qmlapplicationviewer.pri)
+} else:mobile {
     DEFINES *= MOBILE_UI
     FORMS *= mainwindow/UIMobileMain.ui
-    HEADERS *= mainwindow/UIMobileMain.h
+    HEADERS *= mainwindow/UIMain_p.h mainwindow/UIMobileMain.h
     SOURCES *= mainwindow/UIMobileMain.cpp
 } else {
     DEFINES *= DESKTOP_UI
     FORMS *= mainwindow/UIDesktopMain.ui
-    HEADERS *= mainwindow/UIDesktopMain.h
+    HEADERS *= mainwindow/UIMain_p.h mainwindow/UIDesktopMain.h
     SOURCES *= mainwindow/UIDesktopMain.cpp
 }
 
@@ -95,7 +102,6 @@ FORMS *=  \
     widgets/FeedbackDialog.ui
 
 HEADERS *=  \
-    mainwindow/UIMain_p.h \
     objects/NetworkManager.h \
     objects/Housing.h \
     interface/City.h \
