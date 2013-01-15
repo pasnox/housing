@@ -34,7 +34,13 @@
 
 #include "seloger/SeLogerHousingDriver.h"
 
-#include "UIMain.h"
+#if defined( DESKTOP_UI )
+    #include "mainwindow/UIDesktopMain.h"
+#elif defined( MOBILE_UI )
+    #include "mainwindow/UIMobileMain.h"
+#else
+#error Unknown interface.
+#endif
 
 int main( int argc, char** argv )
 {
@@ -45,10 +51,12 @@ int main( int argc, char** argv )
     app.setOrganizationDomain( "sodream.org" );
     app.setOrganizationName( "SoDream" );
 	
-#if !( defined( Q_OS_UNIX ) && !defined( Q_OS_MAC ) )
+#if !( defined( Q_OS_UNIX ) && !defined( Q_OS_MAC ) ) || defined( Q_OS_BLACKBERRY )
 	const QStringList themesPaths = QIcon::themeSearchPaths()
 #if defined( Q_OS_MACX )
         << QString( "%1/../../../Resources" ).arg( QApplication::applicationDirPath() )
+#elif defined( Q_OS_BLACKBERRY )
+        << "app/native"
 #else
         << QApplication::applicationDirPath()
 #endif
@@ -84,7 +92,11 @@ int main( int argc, char** argv )
     AbstractHousingDriver::registerDriver( new SeLogerHousingDriver );
 
     // init main window
-    UIMain w;
+#if defined( DESKTOP_UI )
+    UIDesktopMain w;
+#elif defined( MOBILE_UI )
+    UIMobileMain w;
+#endif
     w.setWindowTitle( app.applicationName() );
     w.showMaximized();
 

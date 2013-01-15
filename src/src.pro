@@ -23,7 +23,8 @@ TARGET = $$quote(housing)
 DESTDIR = ..
 CONFIG *= release
 CONFIG -= debug debug_and_release
-QT *= network webkit xml xmlpatterns
+QT *= network xml xmlpatterns
+!blackberry:QT *= webkit
 BUILD_PATH = ../build
 
 INCLUDEPATH *= .
@@ -74,8 +75,19 @@ TRANSLATIONS *= \
     ../translations/housing_fr_FR.ts \
     ../translations/housing_en_US.ts
 
+blackberry {
+    DEFINES *= MOBILE_UI
+    FORMS *= mainwindow/UIMobileMain.ui
+    HEADERS *= mainwindow/UIMobileMain.h
+    SOURCES *= mainwindow/UIMobileMain.cpp
+} else {
+    DEFINES *= DESKTOP_UI
+    FORMS *= mainwindow/UIDesktopMain.ui
+    HEADERS *= mainwindow/UIDesktopMain.h
+    SOURCES *= mainwindow/UIDesktopMain.cpp
+}
+
 FORMS *=  \
-    UIMain.ui \
     widgets/CitySearchWidget.ui \
     widgets/InputSearchWidget.ui \
     widgets/AnnouncementWidget.ui \
@@ -83,7 +95,7 @@ FORMS *=  \
     widgets/FeedbackDialog.ui
 
 HEADERS *=  \
-    UIMain.h \
+    mainwindow/UIMain_p.h \
     objects/NetworkManager.h \
     objects/Housing.h \
     interface/City.h \
@@ -109,7 +121,6 @@ HEADERS *=  \
 
 SOURCES *=  \
     main.cpp \
-    UIMain.cpp \
     objects/NetworkManager.cpp \
     objects/Housing.cpp \
     interface/City.cpp \

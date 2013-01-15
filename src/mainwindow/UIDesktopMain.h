@@ -3,7 +3,7 @@
 **         Created using Monkey Studio IDE v1.9.0.4 (1.9.0.4)
 ** Authors   : Filipe Azevedo aka Nox P@sNox <pasnox@gmail.com>
 ** Project   : Housing
-** FileName  : UIMain.h
+** FileName  : UIDesktopMain.h
 ** Date      : 2012-12-02T21:57:14
 ** License   : GPL3
 ** Home Page : https://github.com/pasnox/housing
@@ -23,21 +23,21 @@
 ** along with this program. If not, see <http://www.gnu.org/licenses/>.
 **
 ****************************************************************************/
-#ifndef UIMAIN_H
-#define UIMAIN_H
+#ifndef UIDESKTOPMAIN_H
+#define UIDESKTOPMAIN_H
 
 #include <QMainWindow>
 
 class QEvent;
 class UIMainPrivate;
 
-class UIMain : public QMainWindow
+class UIDesktopMain : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    UIMain( QWidget* parent = 0 );
-    virtual ~UIMain();
+    UIDesktopMain( QWidget* parent = 0 );
+    virtual ~UIDesktopMain();
     
 protected:
     UIMainPrivate* d;
@@ -47,4 +47,4 @@ protected:
     virtual void closeEvent( QCloseEvent* event );
 };
 
-#endif // UIMAIN_H
+#endif // UIDESKTOPMAIN_H

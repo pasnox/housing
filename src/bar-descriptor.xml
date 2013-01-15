@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<qnx xmlns="http://www.qnx.com/schemas/application/1.0">
+    <id>com.example.bbxtest</id>
+    <name>bbxtest</name>
+    <versionNumber>1.0.0</versionNumber>
+    <description>The housing searcher</description>
+    <category>core.media</category>
+    <author>Filipe Azevedo (pasnox@gmail.com)</author>
+
+    <initialWindow>
+        <systemChrome>none</systemChrome>
+        <transparent>false</transparent>
+        <autoOrients>true</autoOrients>
+        <aspectRatio>landscape</aspectRatio>
+    </initialWindow>
+
+    <env var="QML_IMPORT_PATH" value="app/native/imports"/>
+    <env var="QT_PLUGIN_PATH" value="app/native/plugins:/usr/lib/qt4/plugins"/>
+    <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib/"/>
+
+    <action system="true">run_native</action>
+
+    <!--<asset path="%SRC_DIR%/qml">qml</asset>
+    <asset path="%SRC_DIR%/assets">assets</asset>-->
+
+    <asset path="%SRC_DIR%/oxygen">oxygen</asset>
+
+    <configuration name="Device-Profile">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset type="Qnx/Elf" path="housing" entry="true">housing</asset>
+    </configuration>
+
+    <!--  The icon for the application, which should be 114x114. -->
+    <!--<icon>
+        <image>icon.png</image>
+    </icon>-->
+
+    <!--  The splash screen that will appear when your application is launching. -->
+    <!--<splashScreens>
+       <image>splash.png</image>
+    </splashScreens>-->
+
+    <!-- Application assets -->
+    <!--<asset path="splash.png">splash.png</asset>
+    <asset path="icon.png">icon.png</asset>
+    <asset path="assets">assets</asset>-->
+
+    <!-- Bright theme is used for the Cookbook -->
+    <!--<cascadesTheme>bright</cascadesTheme>-->
+</qnx>

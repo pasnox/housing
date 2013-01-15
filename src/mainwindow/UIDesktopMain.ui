@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>UIMain</class>
- <widget class="QMainWindow" name="UIMain">
+ <class>UIDesktopMain</class>
+ <widget class="QMainWindow" name="UIDesktopMain">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>768</height>
+    <width>1020</width>
+    <height>764</height>
    </rect>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="wCentral">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QTabWidget" name="twPages">
@@ -296,14 +296,16 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="aStartSearch"/>
+   <addaction name="separator"/>
    <addaction name="aSwitchAnnouncementIgnoreState"/>
    <addaction name="aSwitchAnnouncementBookmarkState"/>
    <addaction name="separator"/>
-   <addaction name="aOpenAnnouncementInNewTab"/>
    <addaction name="aOpenAnnouncementInDefaultBrowser"/>
-   <addaction name="separator"/>
-   <addaction name="aGeotagAnnouncementInNewTab"/>
    <addaction name="aGeotagAnnouncementInDefaultBrowser"/>
+   <addaction name="separator"/>
+   <addaction name="aOpenAnnouncementInNewTab"/>
+   <addaction name="aGeotagAnnouncementInNewTab"/>
   </widget>
   <widget class="QDockWidget" name="dwFeedback">
    <property name="minimumSize">
@@ -396,6 +398,14 @@
    </property>
    <property name="text">
     <string>Geotag the announcement in the default browser</string>
+   </property>
+  </action>
+  <action name="aStartSearch">
+   <property name="icon">
+    <iconset theme="system-search"/>
+   </property>
+   <property name="text">
+    <string>Start search</string>
    </property>
   </action>
  </widget>
