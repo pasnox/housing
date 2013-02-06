@@ -42,6 +42,7 @@ Unix / Linux / Mac OS X
 =======================
 
 ./init-repositories.sh
+mkdir build && cd build
 qmake -r housing.pro
 make -j 4
 
@@ -49,6 +50,7 @@ Windows
 =======
 
 init-repositories.bat
+mkdir build && cd build
 qmake -r housing.pro
 make -j 4
 
