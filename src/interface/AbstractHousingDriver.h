@@ -37,8 +37,10 @@
 
 #include "Announcement.h"
 #include "City.h"
+#include "District.h"
 
 class AbstractCityQuery;
+class AbstractDistrictQuery;
 
 class AbstractHousingDriver : public QObject
 {
@@ -138,6 +140,7 @@ public:
         SearchFeatures features;
         QHash<SearchInput, QVariant> inputs;
         City::List cities;
+        District::List districts;
         QSet<int> ignoredIdSet;
         QSet<int> bookmarkedIdSet;
         
@@ -205,6 +208,7 @@ public:
     virtual AbstractHousingDriver::SearchFeatures supportedSearchFeatures() const = 0;
     
     virtual AbstractCityQuery* cityQuery() const = 0;
+    virtual AbstractDistrictQuery* districtQuery() const = 0;
     virtual QMap<QString, QString> roomsInputs() const = 0;
     virtual QMap<QString, QString> bedroomsInputs() const = 0;
     virtual bool isOwnUrl( const QUrl& url ) const = 0;

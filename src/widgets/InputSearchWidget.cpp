@@ -112,6 +112,7 @@ public slots:
             const QMap<QString, QString> bedrooms = driver->bedroomsInputs();
             
             ui->cswCities->setCityQuery( driver->cityQuery() );
+            ui->cswDistricts->setDistrictQuery( driver->districtQuery() );
             ui->cbRooms->clear();
             ui->cbBedrooms->clear();
             
@@ -276,6 +277,7 @@ void InputSearchWidget::setRequestProperties( const AbstractHousingDriver::Reque
     }
     
     d->ui->cswCities->setCities( properties.cities );
+    d->ui->cswDistricts->setDistricts( properties.districts );
     
     cb = d->ui->cbRooms;
     const QSet<QVariant> roomsSet = properties.numberOfRooms().toSet();
@@ -335,6 +337,7 @@ AbstractHousingDriver::RequestProperties InputSearchWidget::requestProperties() 
     }
     
     properties.cities = d->ui->cswCities->cities();
+    properties.districts = d->ui->cswDistricts->districts();
     
     cb = d->ui->cbRooms;
     QVariantList rooms;
