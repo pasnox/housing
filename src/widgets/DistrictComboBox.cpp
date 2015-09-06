@@ -104,9 +104,7 @@ DistrictComboBox::~DistrictComboBox()
 
 void DistrictComboBox::setDistrictQuery( AbstractDistrictQuery* query )
 {
-	qDebug() << "setDistrictQuery " << query;
-	
-    if ( d->query == query ) {
+   if ( d->query == query ) {
         return;
     }
     

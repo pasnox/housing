@@ -65,7 +65,7 @@ public:
 private slots:
     void updateQuery() {
         if ( !query ) {
-            comboBox->setToolTip( CityComboBox::tr( "No AbstractCityQuery setted." ) );
+            comboBox->setToolTip( CityComboBox::tr( "No AbstractCityQuery set." ) );
             return;
         }
         

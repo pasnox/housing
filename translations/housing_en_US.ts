@@ -114,7 +114,7 @@
     </message>
     <message>
         <location filename="../src/widgets/CityComboBox.cpp" line="68"/>
-        <source>No AbstractCityQuery setted.</source>
+        <source>No AbstractCityQuery set.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -160,6 +160,65 @@
     </message>
     <message>
         <location filename="../src/widgets/CitySearchWidget.cpp" line="86"/>
+        <source>Are you sure you want to clear the list ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DistrictComboBox</name>
+    <message>
+        <location filename="../src/widgets/DistrictComboBox.cpp" line="57"/>
+        <source>Type a district name / zip code...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/DistrictComboBox.cpp" line="68"/>
+        <source>No AbstractDistrictQuery set.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DistrictModel</name>
+    <message>
+        <location filename="../src/interface/DistrictModel.cpp" line="105"/>
+        <source>Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/interface/DistrictModel.cpp" line="107"/>
+        <source>Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/interface/DistrictModel.cpp" line="109"/>
+        <source>Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DistrictSearchWidget</name>
+    <message>
+        <location filename="../src/widgets/DistrictSearchWidget.ui" line="20"/>
+        <source>District:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/DistrictSearchWidget.ui" line="37"/>
+        <source>Add to the list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/DistrictSearchWidget.ui" line="85"/>
+        <source>Remove selection from the list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/DistrictSearchWidget.ui" line="95"/>
+        <source>Clear the list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/widgets/DistrictSearchWidget.cpp" line="86"/>
         <source>Are you sure you want to clear the list ?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -249,71 +308,71 @@
     </message>
     <message>
         <location filename="../src/widgets/InputSearchWidget.ui" line="76"/>
-        <source>Cities</source>
+        <source>Cities / Districts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="88"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="91"/>
         <source>Properties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="100"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="103"/>
         <source>Rooms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="112"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="115"/>
         <source>Bedrooms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="124"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="127"/>
         <source>Budget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="136"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="191"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="246"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="139"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="194"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="249"/>
         <source>Min.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="143"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="166"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="198"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="221"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="253"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="276"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="146"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="169"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="201"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="224"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="256"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="279"/>
         <source>Indifferent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="159"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="214"/>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="269"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="162"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="217"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="272"/>
         <source>Max.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="179"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="182"/>
         <source>Surface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="234"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="237"/>
         <location filename="../src/widgets/InputSearchWidget.cpp" line="59"/>
         <source>Ground</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="289"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="292"/>
         <source>Sorting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/widgets/InputSearchWidget.ui" line="301"/>
+        <location filename="../src/widgets/InputSearchWidget.ui" line="304"/>
         <source>Features</source>
         <translation type="unfinished"></translation>
     </message>
@@ -499,128 +558,212 @@
     </message>
 </context>
 <context>
+    <name>SeLogerDistrictQuery</name>
+    <message>
+        <location filename="../src/seloger/SeLogerDistrictQuery.cpp" line="89"/>
+        <source>No data found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/seloger/SeLogerDistrictQuery.cpp" line="138"/>
+        <source>Your text is too short to start the search.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SeLogerHousingDriver</name>
     <message>
-        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="50"/>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="51"/>
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="388"/>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="403"/>
         <source>%s: Can&apos;t set focus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="399"/>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="414"/>
         <source>%s: Invalid query</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="408"/>
+        <location filename="../src/seloger/SeLogerHousingDriver.cpp" line="423"/>
         <source>%s: Can&apos;t evaluateTo</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UIDesktopMain</name>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="30"/>
+        <source>Search Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="103"/>
+        <source>Total pages:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="130"/>
+        <source>Found:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="157"/>
+        <source>Visible:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="184"/>
+        <source>Announcements:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="220"/>
+        <source>Search Criteria</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="265"/>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="285"/>
+        <source>Tools bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="324"/>
+        <source>Feedback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="347"/>
+        <source>Switch the ignore state of  the announcement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="360"/>
+        <source>Switch the bookmark state of the announcement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="370"/>
+        <source>Open the announcement in a new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="380"/>
+        <source>Open the announcement in the default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="390"/>
+        <source>Geotag the announcement in a new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="400"/>
+        <source>Geotag the announcement in the default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIDesktopMain.ui" line="408"/>
+        <source>Start search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UIMain</name>
     <message>
-        <location filename="../src/UIMain.ui" line="30"/>
-        <source>Search Results</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="103"/>
-        <source>Total pages:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="130"/>
-        <source>Found:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="157"/>
-        <source>Visible:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="184"/>
-        <source>Announcements:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="220"/>
-        <source>Search Criteria</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="265"/>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="285"/>
-        <source>Tools bar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="322"/>
-        <source>Feedback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="345"/>
-        <source>Switch the ignore state of  the announcement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="358"/>
-        <source>Switch the bookmark state of the announcement</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="368"/>
-        <source>Open the announcement in a new tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="378"/>
-        <source>Open the announcement in the default browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="388"/>
-        <source>Geotag the announcement in a new tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.ui" line="398"/>
-        <source>Geotag the announcement in the default browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/UIMain.cpp" line="84"/>
+        <location filename="../src/mainwindow/UIMain_p.h" line="108"/>
         <source>Ignored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.cpp" line="85"/>
+        <location filename="../src/mainwindow/UIMain_p.h" line="109"/>
         <source>Bookmarked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.cpp" line="86"/>
+        <location filename="../src/mainwindow/UIMain_p.h" line="110"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.cpp" line="320"/>
+        <location filename="../src/mainwindow/UIMain_p.h" line="360"/>
         <source>Loading %1...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/UIMain.cpp" line="343"/>
+        <location filename="../src/mainwindow/UIMain_p.h" line="387"/>
         <source>Geotaging %1...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UIMobileMain</name>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="86"/>
+        <source>Total pages:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="113"/>
+        <source>Found:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="140"/>
+        <source>Visible:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="167"/>
+        <source>Announcements:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="230"/>
+        <source>Tools bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="268"/>
+        <source>Switch the ignore state of  the announcement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="281"/>
+        <source>Switch the bookmark state of the announcement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="291"/>
+        <source>Open the announcement in a new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="301"/>
+        <source>Open the announcement in the default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="311"/>
+        <source>Geotag the announcement in a new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="321"/>
+        <source>Geotag the announcement in the default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow/UIMobileMain.ui" line="329"/>
+        <source>Start search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
