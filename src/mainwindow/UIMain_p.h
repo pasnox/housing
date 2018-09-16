@@ -31,8 +31,12 @@
 #include <QEvent>
 #include <QNetworkReply>
 #include <QPixmapCache>
-#if !defined( QT_NO_WEBKIT )
+#if defined(QT_WEBKIT_LIB)
 #include <QWebView>
+#define WebView QWebView
+#elif defined(QT_WEBENGINEWIDGETS_LIB)
+#include <QWebEngineView>
+#define WebView QWebEngineView
 #endif
 #include <QSettings>
 #include <QMovie>
@@ -249,7 +253,7 @@ public slots:
     void view_loadFinished( bool ok ) {
         Q_UNUSED( ok );
 #if defined( DESKTOP_UI )
-        QWebView* view = qobject_cast<QWebView*>( sender() );
+        WebView* view = qobject_cast<WebView*>( sender() );
         const int index = ui->twPages->indexOf( view );
         ui->twPages->setTabIcon( index, view->icon() );
         ui->twPages->setTabText( index, view->title() );
@@ -350,13 +354,13 @@ public slots:
         const QString url = index.data( AnnouncementModel::UrlRole ).toString();
         const int id = index.data( AnnouncementModel::IdRole ).toInt();
 
-        foreach ( QWebView* view, ui->twPages->findChildren<QWebView*>() ) {
+        foreach ( WebView* view, ui->twPages->findChildren<WebView*>() ) {
             if ( view->url() == url ) {
                 return;
             }
         }
 
-        QWebView* view = new QWebView;
+        WebView* view = new WebView;
         ui->twPages->addTab( view, UIMain::tr( "Loading %1..." ).arg( id ) );
         connect( view, SIGNAL( loadFinished( bool ) ), this, SLOT( view_loadFinished( bool ) ) );
         view->setUrl( url );
@@ -377,13 +381,13 @@ public slots:
         const Announcement announcement = index.data( AnnouncementModel::AnnouncementRole ).value<Announcement>();
         const QString url = Housing::googleMapGPSUrl( announcement.latitudeLocation(), announcement.longitudeLocation() );
 
-        foreach ( QWebView* view, ui->twPages->findChildren<QWebView*>() ) {
+        foreach ( WebView* view, ui->twPages->findChildren<WebView*>() ) {
             if ( view->url() == url ) {
                 return;
             }
         }
 
-        QWebView* view = new QWebView;
+        WebView* view = new WebView;
         ui->twPages->addTab( view, UIMain::tr( "Geotaging %1..." ).arg( announcement.id() ) );
         connect( view, SIGNAL( loadFinished( bool ) ), this, SLOT( view_loadFinished( bool ) ) );
         view->setUrl( url );

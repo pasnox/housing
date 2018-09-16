@@ -24,7 +24,7 @@ DESTDIR = ..
 CONFIG *= release
 CONFIG -= debug debug_and_release
 QT *= network xml xmlpatterns
-!blackberry:QT *= webkit
+!blackberry:QT *= webenginewidgets
 BUILD_PATH = ../build
 
 INCLUDEPATH *= .
