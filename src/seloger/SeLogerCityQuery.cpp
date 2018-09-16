@@ -51,7 +51,7 @@ public:
     }
     
     QUrl requestUrl( const QString& text ) const {
-        return QUrl( QString( "http://www.seloger.com/js,ajax,villequery_v3.htm?ville=%1&mode=1" ).arg( text ) );
+        return QUrl( QString( "https://www.seloger.com/js,ajax,villequery_v3.htm?ville=%1&mode=1" ).arg( text ) );
     }
 
 private slots:
