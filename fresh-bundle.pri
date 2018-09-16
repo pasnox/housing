@@ -21,6 +21,10 @@ fresh {
         include( $${FRESH_BUNDLE_PATH}/qmake-extensions.git/qmake-extensions.pri )
 
         FRESH_SOURCES_PATHS = $$getFolders( $${FRESH_BUNDLE_PATH}/src )
+        FILES = $$files($${FRESH_BUNDLE_PATH}/*, true)
+        for(file, FILES) {
+            INCLUDEPATH *= $$dirname(file)
+        }
     } else:exists( $${_PRO_FILE_PWD_}/$${FRESH_BUNDLE_PATH}/fresh.pro ) {
         !build_pass:message( "Using bundled fresh library (2)." )
 
@@ -46,9 +50,9 @@ fresh {
 
     QMAKE_RPATHDIR *= $${FRESH_BUNDLE_LIB_PATH}/../build
     macx:LIBS *= -F$${FRESH_BUNDLE_LIB_PATH}/../build
-    LIBS *= -L$${FRESH_BUNDLE_LIB_PATH}/../build
+    LIBS *= -L$$clean_path($${FRESH_BUNDLE_LIB_PATH}/../build)
 
     QT *= xml network
-    !macx:qtAddLibrary( fresh )
-    macx:LIBS *= -lfresh
+#    !macx:qtAddLibrary( fresh )
+    LIBS *= -lfresh
 }

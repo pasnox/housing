@@ -25,6 +25,7 @@ CONFIG *= release
 CONFIG -= debug debug_and_release
 QT *= network xml xmlpatterns
 !blackberry:QT *= webenginewidgets
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x000500
 BUILD_PATH = ../build
 
 INCLUDEPATH *= .
