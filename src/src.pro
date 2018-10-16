@@ -97,6 +97,7 @@ blackberry {
 
 FORMS *=  \
     widgets/CitySearchWidget.ui \
+    widgets/DistrictSearchWidget.ui \
     widgets/InputSearchWidget.ui \
     widgets/AnnouncementWidget.ui \
     widgets/FeedbackWidget.ui \
@@ -107,19 +108,25 @@ HEADERS *=  \
     objects/Housing.h \
     interface/City.h \
     interface/CityModel.h \
+    interface/District.h \
+    interface/DistrictModel.h \
     interface/Announcement.h \
     interface/AnnouncementModel.h \
     interface/AnnouncementProxyModel.h \
     interface/AnnouncementItemDelegate.h \
     interface/AbstractCityQuery.h \
+    interface/AbstractDistrictQuery.h \
     interface/AbstractHousingDriver.h \
     interface/Feedback.h \
     interface/FeedbackModel.h \
     interface/FeedbackItemDelegate.h \
     seloger/SeLogerCityQuery.h \
+    seloger/SeLogerDistrictQuery.h \
     seloger/SeLogerHousingDriver.h \
     widgets/CityComboBox.h \
+    widgets/DistrictComboBox.h \
     widgets/CitySearchWidget.h \
+    widgets/DistrictSearchWidget.h \
     widgets/InputSearchWidget.h \
     widgets/AnnouncementWidget.h \
     widgets/AnnouncementView.h \
@@ -132,19 +139,25 @@ SOURCES *=  \
     objects/Housing.cpp \
     interface/City.cpp \
     interface/CityModel.cpp \
+    interface/District.cpp \
+    interface/DistrictModel.cpp \
     interface/Announcement.cpp \
     interface/AnnouncementModel.cpp \
     interface/AnnouncementProxyModel.cpp \
     interface/AnnouncementItemDelegate.cpp \
     interface/AbstractCityQuery.cpp \
+    interface/AbstractDistrictQuery.cpp \
     interface/AbstractHousingDriver.cpp \
     interface/Feedback.cpp \
     interface/FeedbackModel.cpp \
     interface/FeedbackItemDelegate.cpp \
     seloger/SeLogerCityQuery.cpp \
+    seloger/SeLogerDistrictQuery.cpp \
     seloger/SeLogerHousingDriver.cpp \
     widgets/CityComboBox.cpp \
+    widgets/DistrictComboBox.cpp \
     widgets/CitySearchWidget.cpp \
+    widgets/DistrictSearchWidget.cpp \
     widgets/InputSearchWidget.cpp \
     widgets/AnnouncementWidget.cpp \
     widgets/AnnouncementView.cpp \

@@ -25,6 +25,7 @@
 ****************************************************************************/
 #include "SeLogerHousingDriver.h"
 #include "SeLogerCityQuery.h"
+#include "SeLogerDistrictQuery.h"
 
 #include <QStringList>
 #include <QXmlQuery>
@@ -134,6 +135,11 @@ AbstractCityQuery* SeLogerHousingDriver::cityQuery() const
     return new SeLogerCityQuery( QApplication::instance() );
 }
 
+AbstractDistrictQuery* SeLogerHousingDriver::districtQuery() const
+{
+    return new SeLogerDistrictQuery( QApplication::instance() );
+}
+
 QMap<QString, QString> SeLogerHousingDriver::roomsInputs() const
 {
     QMap<QString, QString> rooms;
@@ -191,12 +197,20 @@ void SeLogerHousingDriver::setUpSearchRequest( QNetworkRequest& request, QByteAr
     
     QUrl url( d->webServiceUrl() );
     QStringList cities;
+    QStringList districts;
     QStringList types;
     QStringList rooms;
     QStringList bedrooms;
     
     foreach ( const City& city, properties.cities ) {
         cities << city.value();
+    }
+    
+    foreach ( const District& district, properties.districts ) {
+        districts << district.value();
+		if ( !cities.contains(district.valuesup()) ) {
+			cities << district.valuesup();
+		}
     }
     
     foreach ( const QVariant& variant, properties.numberOfRooms() ) {
@@ -271,6 +285,7 @@ void SeLogerHousingDriver::setUpSearchRequest( QNetworkRequest& request, QByteAr
     }
     
     url.addQueryItem( "ci", cities.join( "," ) );
+    url.addQueryItem( "idq", districts.join( "," ) );
     
     if ( properties.properties != AbstractHousingDriver::SearchPropertyNone ) {
         url.addQueryItem( "idtypebien", types.join( "," ) );

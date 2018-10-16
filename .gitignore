@@ -11,3 +11,4 @@
 *.la
 *.a
 /oxygen/
+/build/

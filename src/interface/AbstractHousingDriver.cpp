@@ -79,6 +79,7 @@ QVariant AbstractHousingDriver::RequestProperties::toVariant() const
     map[ "features" ] = int( features );
     map[ "inputs" ] = variantInputs;
     map[ "cities" ] = City::listToVariant( cities );
+    map[ "districts" ] = District::listToVariant( districts );
     map[ "ignored" ] = variantIgnored;
     map[ "bookmarked" ] = variantBookmarked;
     
@@ -108,6 +109,7 @@ void AbstractHousingDriver::RequestProperties::fromVariant( const QVariant& vari
     }
     
     cities = City::variantToList( map.value( "cities" ) );
+    districts = District::variantToList( map.value( "districts" ) );
     
     ignoredIdSet.clear();
     

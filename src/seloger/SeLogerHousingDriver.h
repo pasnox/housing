@@ -47,6 +47,7 @@ public:
     virtual AbstractHousingDriver::SearchFeatures supportedSearchFeatures() const;
     
     virtual AbstractCityQuery* cityQuery() const;
+    virtual AbstractDistrictQuery* districtQuery() const;
     virtual QMap<QString, QString> roomsInputs() const;
     virtual QMap<QString, QString> bedroomsInputs() const;
     virtual bool isOwnUrl( const QUrl& url ) const;

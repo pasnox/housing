@@ -71,13 +71,16 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="gbCities">
+     <widget class="QGroupBox" name="gbCitiesDistricts">
       <property name="title">
-       <string>Cities</string>
+       <string>Cities / Districts</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="CitySearchWidget" name="cswCities" native="true"/>
+       </item>
+       <item>
+        <widget class="DistrictSearchWidget" name="cswDistricts" native="true"/>
        </item>
       </layout>
      </widget>
@@ -315,6 +318,12 @@
    <class>CitySearchWidget</class>
    <extends>QWidget</extends>
    <header>widgets/CitySearchWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DistrictSearchWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/DistrictSearchWidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
