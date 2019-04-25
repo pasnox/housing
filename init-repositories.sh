@@ -6,7 +6,7 @@ git submodule update --init --recursive
 # Download oxygen theme for Windows & Mac OS X
 OS=`uname -s | tr '[:upper:]' '[:lower:]'`
 
-if [ "$OS" == "darwin" ] || [[ "$OS" == *"_nt-"* ]] || [[ "$OS" == *"cygwin"* ]] || [[ "$OS" == *"mingw"* ]] || [[ "$OS" == *"uwin"* ]]; then
+if [ "$OS" == "darwin" ] || [[ "$OS" == *"_nt-"* ]] || [[ "$OS" == *"cygwin"* ]] || [[ "$OS" == *"mingw"* ]] || [[ "$OS" == *"uwin"* ]] || [[ "$1" != "" ]]; then
     ICONS_THEME="oxygen"
     ICONS_THEME_GIT="oxygen-icons-png.git"
 
